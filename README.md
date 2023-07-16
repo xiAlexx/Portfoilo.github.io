@@ -1,4 +1,4 @@
-# Software Developer With A Passion For Games [🎮](Project_1/WelcomePage.html)
+# Software Developer With A Passion For Games [🎮](/Portfolio/Project_1/WelcomePage.html)
 
 Welcome to my software developer portfolio! This repository showcases my skills, projects, and experience in software development, with a particular interest in game development and web design.
 
@@ -6,9 +6,11 @@ Welcome to my software developer portfolio! This repository showcases my skills,
 
 Hello world, my name is Alex Porter and I'm a junior software developer with a strong passion for games and web design. Although my experience is primarily in software development, I have always been fascinated by the world of gaming. My goal is to combine my technical skills with my love for games to create immersive and captivating gaming experiences.
 
+The whole portfolio can be accessed by clicking the controller. [🎮](/Portfolio/Project_1/WelcomePage.html)
+
 ## Projects
 
-### Project 1: My Course Work [🎮](Project_1/WelcomePage.html)
+### Project 1: My Course Work [🎮](/Portfolio/Project_1/AboutHTML.html)
 
 - Description: The My Course Work Repository is a comprehensive project that showcases the skills and knowledge acquired throughout the course. It serves as a practical application of programming concepts and techniques learned, incorporating various programming languages and tools.
 
@@ -26,13 +28,13 @@ The coursework involves working with the following languages and tools:
 
 - Additionally, you can find a repository for this project on GitHub user name: xiAlexx  
 
-### Project 2: Rock, Paper, Scissors [🎮](Project_1/WelcomePage.html)
+### Project 2: Rock, Paper, Scissors 
 
 - Description: In this classic game, the user is prompted to enter their choice as an integer: 1 for Rock, 2 for Paper, and  3 for Scissors. The computer's choice is generated randomly using the random module. The game logic then compares the user's choice with the computer's choice to determine the winner. If the choices are the same, it's a tie. Otherwise, Rock beats Scissors, Paper beats Rock, and Scissors beats Paper. After each round, the user is asked if they want to play again. After each round, the scores are updated accordingly based on the game's outcome. The updated scores are then displayed to the user. Lastly after the user decides not to play again, a final score summary is displayed. It shows the number of wins for the user and the computer throughout the game and a thank you for playing.
 
 - Technologies Used: Git/GitHub, Python and VScode.
 
-- Demo: Project can be found in GitHub Portfolio repository.
+- Demo: Project can be found here.
 
 ### Project 3: Hangman [🎮](Project_1/WelcomePage.html)
 
@@ -46,7 +48,7 @@ The coursework involves working with the following languages and tools:
 
 - Technologies Used: Git/GitHub, JavaScript, HTML, CSS and VScode.
 
-- Demo: Project can found in Repository.
+- Demo: Project can found here [🎮](/Portfolio/Project_3/index_hangman.html).
 
 ## Skills
 

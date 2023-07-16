@@ -87,7 +87,7 @@ body, nav, ul, li, a, h1, h2, p {
   
   /* Additional styles for the sections */
 header {
-    background-image: url('/Project_1/Images/GetStarted.jpg');
+    background-image: url('/Portfolio/Project_1/Images/GetStarted.jpg');
     background-size: cover;
     background-position: center;
     height: 550px;
