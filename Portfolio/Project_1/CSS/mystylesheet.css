@@ -1,0 +1,259 @@
+
+
+     html   {
+            background-color:slategray;
+            scroll-behavior:smooth;
+    }
+    
+   
+        body   {
+            background-color:white;
+            margin:0px auto;
+            margin-top:15%;
+            margin-bottom:15%;
+            padding:10px;
+            width:70%; 
+            box-shadow:10px 10px 10px black;
+            font-family: Helvetica, sans-serif;
+            font-size: 1.3em;
+}
+
+.navbarlist {
+    list-style-type:none;
+    overflow: auto;
+    background-color: white;
+    text-align:left;
+    font-size: 1.0em;
+    
+    
+   
+}
+
+.navbarlist a:hover { 
+    text-decoration: underline;
+    width: 100px; 
+    padding: 10px 10px;
+    margin: 10px;
+    
+}
+.liright {
+    float:left;
+    color: blue;
+    line-height: 10px;
+    padding: 10px;
+}
+
+
+#floatleft {
+    text-align: left;
+    margin-bottom: -30px;
+    
+}
+
+#floatright {
+    float: right;
+    margin: -30px;
+    padding-right: 30px;
+}
+
+
+    
+
+.shadowfilter {
+    filter: drop-shadow(9px 9px 9px rgba(0,0,0,0.8));
+    -o-filter:
+        drop-shadow(9px 9px 9px rgba(0,0,0,0.8))
+}
+
+
+.boxshadow { 
+    box-shadow: 2px 2px black;
+}
+
+.box1 {
+    border: 5px outset blue;
+    padding: 10px;
+    border-radius: 5px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position:relative;
+    z-index: 1;
+    
+}
+
+.box2 {
+    border: 5px solid green;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin:10px;
+    
+    float: right;
+    overflow: scroll;
+             
+}
+
+.box3 p {
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    font-family: 'Pacifico', cursive;
+    border-style: dashed;
+    font-size: 1.5em;
+}
+.boxtrans {
+    float:left;
+    background-color: green;
+    padding: 10px;
+    border: 3px solid black;
+    margin: 10px;
+    outline: 3px dashed red;
+    width: 20%;
+    font-size: 0.8em;
+    color: white;
+    clear: left;
+    
+}
+
+.boxtrans2 {
+    background-color: blue;
+    padding: 10px;
+    border: 3px solid black;
+    margin: 10px;
+    outline: 3px dashed red;
+    width: 20%;
+    text-align: left;
+    font-size: 0.8em;
+    color: white;
+    clear: left;
+
+}
+
+#left {
+    text-align: center;
+}
+
+#left:hover {
+    transform: translateX(20px);
+}
+
+
+#right {
+    text-align: center;
+}
+
+#right:active {
+    transform: translateY(20px)
+}
+
+
+.transitionexample {
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 3px 3px;
+    width: 20px;
+    height: 20px;
+    background: red;
+    text-align: center;
+    overflow: hidden;
+    -webkit-transition: width 2ms;
+    -ms-transition: width 2ms;
+    transition: width 2s;
+    transition-timing-function: ease-out;
+    transition-delay: 0.5s;
+    transition-duration: 1s;
+    
+}
+
+ .transitionexample:hover {
+    width: 113px;
+    height: 50px;
+    background-color: blue;
+}
+
+
+       .subpoint {
+            list-style-position: inside;
+            list-style: none;
+           
+}
+       .imgright {
+            float: right;
+}
+       .imgcenter {
+            display:flex;
+            margin-left:auto;
+            margin-right:auto;
+            width:70%;
+}
+
+		h1 {
+			color:white;
+			text-align:center;
+            background-color:slategray;
+            text-shadow: 1.5px 1.5px .5em white;
+            font-weight: bold;
+            font-size: 3.0em;
+            
+            
+            
+            
+            
+}
+    
+		h2 {
+			color:black;
+            text-decoration-line: underline;
+            font-weight: bold;
+			font-size: 1.5em;
+            font-style:italic;
+            text-shadow: 0.1em 0.1em .2em gray;
+          
+}
+
+
+        a { 
+            color:blue;
+            text-decoration: none;
+
+}
+
+        a:hover { 
+            text-decoration: underline;
+}
+
+     
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+            
+}
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            
+}
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+            
+}
+
+        code {
+            border: 2px solid black;
+            box-shadow: 2px 2px 2px black;
+            border-radius: 5px;
+            color: red;
+            font-style: italic;
+            background-color: lightgray;
+            display: block;
+            width: 50%;
+            margin: auto;
+            overflow: auto;
+}
+        

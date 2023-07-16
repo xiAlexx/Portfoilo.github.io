@@ -1,0 +1,481 @@
+<!DOCTYPE HTML>
+<Html lang="en">
+<Head>
+	<title>Coding Journal</title>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="CSS/normalize.css">
+    <link rel="stylesheet" type="text/css" href="CSS/w3main.css">
+    <link rel="stylesheet" type="text/css" href="CSS/mystylesheet.css">
+    
+    <style>
+    
+    
+        .navbarlist {
+            list-style-type:none;
+            overflow: auto;
+            background-color: white;
+            text-align:left;
+            font-size: 1.0em;
+            
+            
+           
+        }
+        
+        .navbarlist a:hover { 
+            text-decoration: underline;
+            width: 100px; 
+            padding: 10px 10px;
+            margin: 10px;
+            
+        }
+        .liright {
+            float:left;
+            color: blue;
+            line-height: 10px;
+            padding: 10px;
+        }
+ 
+    </style>
+</Head>
+<Body>
+    
+<header>
+<nav>
+ 
+    
+
+    <ul class="navbarlist">
+        <li class="liright"><a target="_blank" href="AboutCSS3.html">CSS3</a></li>
+        <li class="liright"><a target="_blank" href="AboutJavaScript.html">JavaScript</a></li>
+        <li class="liright"><a href="#section-1">The HTML Structure</a></li>
+        <li class="liright"><a href="#section-2">Creating lists and working with tables</a></li>
+        <li class="liright"><a href="#section-3">Structuring Web Pages</a></li>
+        <li class="liright"><a href="#section-4">Adding Links, Images And Other Media</a></li>
+        <li class="liright"><a href="#section-5" >Styling Web Pages</a></li>
+        <li class="liright"><a href="#section-6">Creating Your Own Website</a></li>
+    
+    </ul>
+    
+    
+</nav>
+</header>
+
+    
+<Section>
+
+	<h1 id="#top">Learning Coding From Stratch</h1>
+
+
+    <p> This is my first website, I started creating this website on: 15:36  05/02/2023 i'm learning software development, I will be using this website to record my studies over the next year and to help me to practice my coding!
+        Also a big thank you to <b>Patrick Loner</b>, <a target="_blank" href="https://www.codecademy.com/register?redirect=https%3A%2F%2Fwww.codecademy.com%2Flogin">Codecademy</a>, <a target="_blank" href="https://www.amazon.co.uk/ref=ap_frn_logo">Amazon</a>, 
+        <a target="_blank" href="https://www.itonlinelearning.com/">IT OnlineLearning</a> for helping me along my journey.</p> 
+
+    <p>In this website you will find a detailed account of everything I am learning on my a beginngers HTML essentials course whilst studying software development, I hope that you enjoy!
+    </p>
+
+    <p>Not a fan of Wordpress? See my own personal welcome page made from scratch <a target="_blank" href="WelcomePage.html">here</a>!
+        Again everything inside the course is completely from scratch no copy and paste just a lot of time and reading.</p>
+    
+	
+<h2 id="section-1">The HTML Structure</h2>
+
+<DL> 
+    <DT><STRONG>The HTML Document:</STRONG></DT>
+		<DD> The HTML is the document itself. HTML stands for Hyertext  markup language
+		 and it is the foundation of the world wide web and is the glue that holds
+		 webpages together, Wihtout having the HTML code wepages would have no structure
+            and no content.</DD>
+    <DT><STRONG>DOCTYPE Declaration:</STRONG></DT>
+            <DD> Defines to users and browser what version of HTML the document was writen in.</DD>
+    <DT><STRONG>The Head:</STRONG></DT>
+		  <DD>Enhances the content as well as this browser users also cant see the content
+            on the web page itself.</DD>
+    <DT><strong>The Body:</strong></DT>
+            <DD>Defines important content on the webpage, this is content that web users can also see.</DD>
+    <DT><Strong>The Footer:</Strong></DT>
+            <DD>Defines the information about the webpage, designer or company, ect..</DD>	
+</DL>
+    </Section>
+    
+    <Section>
+
+	<h2 id="#two"> Understanding HTML 5  </h2>
+
+<DL>
+
+    <DT><STRONG>Elements</STRONG></DT>
+    <DD>The Whole Content within a tag for example.</DD>
+            <br>
+			<img class="imgcenter" src="Images/Element_picture.jpg" alt= "An example of an element" Class="center" style="width:408px;height:158px;" >
+
+    <DT><STRONG>Attributes</STRONG></DT>
+        <DD> All HTML elements can have attributes as seen above.Attributes provides additional information about the element and is always specified in the <B>Start Tag.</B></DD>
+    <DT><STRONG>Syntax</STRONG></DT>
+		<DD>The HTML Syntax is one of the first lessons beginners would come across when learning the markup language. In computer programming, the markup is used to annotate 
+            a document and the syntax works like a format or structure to write the document. This is the way to direct browsers on how to interpret web pages.</DD>
+    <DT><STRONG>Block level elements.</STRONG></DT>
+		<DD>A block-level element can take up one line or multiple lines and has a line break before and after the element.
+            The picture above and below is a great example of this.</DD>
+    <DT><STRONG>Inline Elements</STRONG></DT>
+		<DD> An inline element is the opposite of a block level element, it does not start on a new line
+		     and takes up only the necessary width. For example it only occupies the space bounded by the tags instead of breaking the flow of content.
+            As seen below.</DD>
+            <br>
+			<img src="Images/Block_and_Inline_example.jpg" alt= "A example of a inline element" Class="imgcenter" style="width:475px;height:358px;">		
+</DL>
+    </Section>
+    
+    <Section>
+
+        <h1 id="section-2"> Creating lists and working with tables </h1>
+    
+    <h2>Lists</h2>
+
+   <p> Lists have much variety and can be used in many ways. One for example would be seen above in the section "Understanding HTML 5." Having the word above in bold and the definition below. The tags for definition lists are as follows <span style="color:red;">"DL/DT/DD"</span>
+       Afew other main ones used in most webistes with lists are as follows,</p> 
+	
+    <OL> 
+        <Li> ordered lists <span style="color:red;">"OL"</span>
+        followed by the  <span style="color:red;">"LI"</span> tag</Li> 
+        </OL>
+	<UL>
+        <LI>Unordered Lists <span style="color:red;">"UL"</span>
+            <span style="color:red;">"LI"</span></LI>
+         </UL> 
+    
+    <h2>Creating a Basic Table</h2>
+    
+    
+        <p>This is a breif summary of creating or using a basic table in HTML 5. I will use small elements in the styling section to make the table easier to read however styling tables will be used in CSS which will be covered later. The table itself will explain the tags used to create the table and some other tags for some styling tips.</p>
+    
+        <p>For more information about tables please click <a href="https://www.w3schools.com/html/html_tables.asp">Here</a> or vist <a href="https://www.w3schools.com/html/html_tables.asp">https://www.w3schools.com</a></p>
+    
+    <table style="margin-left: auto; margin-right: auto;">
+  <tr>
+    <th>Tag</th>
+    <th>Description</th>
+  </tr>
+    <tr>
+        <td>   
+            <a href="https://www.w3schools.com/html/html_tables.asp">Table</a></td>
+    <td> Defines a table to HTML</td>
+            </tr>
+  <tr>
+    <td>
+        <a href="https://www.w3schools.com/tags/tag_th.asp">th</a> </td>
+            
+    <td>Defines the tables header</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/tags/tag_tr.asp">tr</a></td>
+    <td>Defines a row in a table</td>
+
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/tags/tag_td.asp">td</a></td>
+    <td>Defines a cell in a table</td>
+    
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/tags/tag_caption.asp">Caption</a></td>
+    <td>Defines a title for your table</td>
+    
+  </tr>
+  <tr>
+      <td><a href="https://www.w3schools.com/tags/tag_colgroup.asp">colgroup</a></td>
+    <td>Selects a group of one or more columns in a table for formatting</td>
+    
+  </tr>
+        
+    <tr>
+        <td><a href="https://www.w3schools.com/tags/tag_col.asp">col</a></td>
+        <td>Selects a columns properties for each column within the colgroup element</td>
+        
+    </tr>
+    
+        <tr>
+            <td><a href="https://www.w3schools.com/tags/tag_thead.asp">thead</a></td>
+        <td>Groups the header in the content of the table</td>
+        
+        </tr>
+        
+    <tr>
+        <td><a href="https://www.w3schools.com/tags/tag_tbody.asp">tbody</a></td>
+        <td>Groups the body content in a table</td>
+        
+        </tr>
+        
+        <tr>
+            <td><a href="https://www.w3schools.com/tags/tag_tfoot.asp">tfoot</a></td>
+            <td>Groups the footer content in a table</td>
+        
+        </tr>
+        
+</table>
+    </Section>
+    
+    <Section>
+
+        <h1 id="section-3">Structuring Web Pages and why it matters</h1>
+    
+    
+        <p >All Web pages have a sort of structure that we both come to recognize and expect. Pages are structed into variuos sections such as navigation menus,main content,additional content and so forth. This is so common we intuituvely expect it when looking at a web page. In addition to this people use search engines whivh rely on the structure of the data.</p>
+    
+        <p>Below you will see a basic web page structure using HTML 5. The header would most likely be the company information. The main content would be the article and section with any additonal related content aside most likely to the right. Finally the companys contact informtaion, copyrights and again navigation.</p>
+    <br>
+    <img src="Images/Webpagestructure.jpg" title="A template of a web page structure." class="imgcenter" style="width:458px;height:358px;">
+    
+    <h2>Semantics</h2>
+    
+    
+        <p>The use of HTML markup to enhance and reinforce the meaning of the page's content rather than merely concerning the look and feel of the content. Semantic elements are elements with meaning that help to define the page content and can be used as oppesed to non-semantic elements like <span style="color:red;">"DIV</span> and<span style="color:red;">"Span"</span></p>
+    
+    
+        <p>Semantics elements can be used in HTML for headings and sectioning tags to describe the outline of the page's contents very similar to a table of contents. Doing  this provides the ability to skin and search your files and can identifiy different types of content related to other content. </p>
+        
+    <p> Examples of non-semantic elements: 
+        <span style="color:red;">"DIV"</span> and <span style="color:red;">"Span"</span> - Tells nothing about its content.
+        <br>
+        Examples of semantic elements: 
+        <span style="color:red;">"form"</span>,<span style="color:red;">"table"</span>, and 
+        <span style="color:red;">"Article"</span> - Clearly defines its content.</p>
+        
+        <h2>Article Element</h2>
+        
+        <p> The article element specifies indepenedent self -contained content and often gets confused with the section element. An article should make sense on its own and it should be possible to distribute it indpendently from the rest of the site. Here are some examples of a web pages that would use such an element</p>
+        
+        <UL>
+        <Li>Forum Posts</Li>
+        <Li>Blog Posts</Li>
+        <Li>News Story</Li>
+        <LI>Comments</LI>
+        
+             </UL>
+        
+        <h2>Section element</h2>
+        
+        <p>The section element defines sections in a document,such as chapters,headers,footers,or any other sections of the document. When it would make sense to syndicate the content authors are encouraged to use the article element instead. Section is not a generic element for styling purposes but instead of a thematic grouping of content.</p>
+        
+        <h2> The Div Element</h2>
+        
+        <p> The Div element has been spoke about alot so far but what does the div tag do and how do we use it correctly in a web page. The div tag allows us to structure or section content without giving it any additional semantic meaning. It can be called an anonymous grouping tag that doesnt really mean anything, if there is a tag that passes along the semantic meaning of the text it should be used instead The div tag defines a division or a section in an HTML document.The div tag is used as a container for HTML elements which is then styled with CSS or manipulated with JavaScript.The div tag is easily styled by using the class or id attribute. Any sort of content can be put inside the div tag! </p>
+        
+        </Section>
+    
+        <Section>
+    
+    <h1 id="section-4"> Working with Links, adding images and other media</h1>
+            
+            <p>The World Wide Web (WWW) is all about links to other locations making it a giant playground where you can surf at high speed to different parts of the world. Hyperlinks give your web page the ability to interact with other sources around it in fantastic ways. Virtually every web page beyond the simplest example will have at least some form of hyperlink.</p>
+            
+            <p >In order to create hyperlinks you must have three key pieces of information and afew other extras. </p>
+        <ol>
+            <li>Web adress</li>
+            <li>Some text to display</li>
+            <li>An Anchor element "A"</li>
+            <li>An inline element that should alwyas be placed within a block element</li>
+            <li>Used to anchor a URL to some text on your webpage</li>
+            <li>Contains an href attribute that glues everything together</li>
+             </ol>
+            
+            <p>Example: <a href=http://www.google.com>www.Google.Com</a></p>
+            
+    <h2>Absolute Links And Relative Links</h2>
+            
+            <p> Absolute links is the full complete URL to connect to a web page or online resource. URL components Protocol "http://" Domain Name "www.abc.com" File name "/default.html.</p> 
+            
+            <p>Example:<a href="https://www.w3schools.com/tags/tag_table.aspTable">https://www.w3schools.com/tags/tag_table.aspTable</a></p>
+    
+            <p>Relative Links is uses to a type of shorthand to specify the URL you are pointing to, is only used in certain situations like linking within the same page or the same site. When the browser sees a link in a href element it assumes that because the domain name is missing it is relative link. Relative links have the advantage of functioning even if you happen to move the web site to another server or domain.</p>
+            
+            <p> Example: <a href=AboutMyself.html>About Myself</a></p>
+            
+    <h2 id="#Six">Working With Links</h2>
+            
+     <p>There are various ways in which you can customize the links in your web page, For Example: </p> 
+            
+        <ul>
+            <li>Open linked documents in new windows using the target attribute</li>
+            <li>Link to a specific location within a web page</li>
+            <li>Use the Name attribute</li>
+            <li>Linking to non-HTML resources i.e Audio, video and files</li>
+            <li>Find out more information about fragment idenifiers <a href="https://www.w3schools.com/tags/att_global_id.asp">Here
+                </a></li>
+        </ul>
+            
+    <h2>Working With Images</h2>
+            
+    
+            <p>The first step to working with images is to determine the appropriate file format and size for your images. Web-friendly images arent the same as images for other mediums and require a smaller size for fast page loading as well as a cross-platform file type. Images also play an important role on the web page and can include:</p>
+            <ul>
+                <li>Logos</li>
+                <li>Banners</li>
+                <li>Clickable navigation aids</li>
+                <li>Content</li>
+            </ul>
+            
+
+            <p>When well used they are a key element of page design and when used poorly they can result in an unreadable, unintelligble page and a poor user experince.
+                <br>
+                <br>
+            Here are some of the best genreal use file formats:</p>
+            
+<Dl>
+        <dt><b>GIF</b>- Graphics interchange Format</dt>
+            <dd>Supports only up to 256 colors</dd>
+            <dd>Best for less-complex,nonp-photographic images like icons,line art,or clip art.</dd>
+        <dt><b>JPEG</b>- Joint Photographic Experts Group</dt>
+            <dd>Supports 24-bit color</dd>
+            <dd>Cross platform and application independant</dd>
+            <dd>Compromises quality when file is compressed though a balance can be struck </dd>
+        <dt><b>PNG</b> - Portable Network Graphics</dt>
+            <dd>Supports up to 32-bit color</dd>
+            <dd>Combines the best aspects of GIF and JPEG</dd>
+            <dd>Offers the best balance between quality and file size</dd>
+</Dl>
+
+
+            <p> Adding images to the page requires that you know the location of the image and this works best if you can use relative locations. You could use absolute source references to images stored elsewhere.</p> 
+            <p>However, using relative sourcce is preferred for control, speed and copyright. Best practice is to create a separate images directory so that the relative path to all the files on the page is the same. Also Requies that images be stored on the web server.</p>
+
+            <p>In order to place an image on the page you will use the img element, known as an empty or <i>singleton</i> element because it only uses a single tag. Img enables you to specify the place on the page where you would like to place the image. The img tag also uses the <i>src</i> attribute to identify the location of the image. Following the source attribute the <i>alt</i> attribute, the <i>alt</i> should be used in order to define alternate text to screen readers if picture doesnt load etc. Other attributes are as follows <i>Title=""</i>,<i>Height=""</i>,<i>Width=""</i>. Try adding a title to your image as well as nest a hyperlink inside for a more realstic look.</p>
+         <a href="https://www.miltonmarketing.com/coding/html/the-image-tag/"><img class="imgcenter" src="images/imagewithlink.jpg" alt="A picture of the IMG tag with a link" title="TheImgTag" width="50%" height="50%"></a>
+            
+</Section>
+<Section>
+    
+        <h1 id="section-5">Styling Web Pages</h1> 
+    
+    <p>In in this chapter I will be showing a summary of some of the things I learned with styling web pages. This chapter will most likely consist of five sections focusing on how they help style a web page with HTML and a breif look into CSS and why most styling will be created on this software platform instead. The five sections in this chapter Im focusing on will be:
+    </p>
+     
+    <ol>
+        <li>HTML and CSS</li>
+        <li>Creating Inline Styles</li>
+        <li>Controlling Typography</li>
+        <li>Adding Color</li>
+        <li>Externalizing Styles</li>
+    </ol>
+    
+    
+    <h2 > HTML and CSS </h2>
+    
+    <p> HTML and CSS have a virtually inseparable relationship with one another to the extent that in order to learn web development you nust understand both languages as HTML defines the structure and CSS defines the styling.</p>
+    
+    <p>There are types of styles to look out for when styling your web page here are afew examples:</p>
+    
+    <dl>
+        <dt><b>Inline Style</b></dt>
+            <dd>Adding markup to individual HTML elements.</dd>
+        <dt><b>Internal Style Sheets</b></dt>
+            <dd>Sequential markup added to the style element in the HTML document.</dd>
+        <dt><b>External Style Sheets</b></dt>
+            <dd>Linking HTML documents to a .css file that contains your styles.</dd>
+        <dt><b>Style differently</b></dt>
+            <dd>Base your style on whether an HTML document is being view on a desktop or mobile device.</dd>
+    </dl>
+    
+    <br>
+    
+    <p>Each style sheet is made up of style rules containing two parts.
+    The Selector which is the element that you want tot affect on the page for example "h1" this style rule will affect all h1 elements on this page.
+    <br>
+    The Declaration which is going to be a property and a value and mostly everytime starting with a {. The declaration property will be mostly the description as to what is happening to the selected element for example "color:" or "font-size:". Properties always end with a colon:. Finally the value, which will mostly be telling the broswer what color the font is or what size the font is. The value will always end with a semi colon;. Here is an example of CSS syntax with the h1 element, this example clearly shows the selector and declaration with correct property and value.
+    </p>
+    
+
+    <a href="https://revplit.com/pages/css/css_syntax.php"><img src="Images/Theselector.png" alt="A image on CSS Syntax" title="CSS Syntax" Class="imgcenter"></a>
+    
+    
+    <p>Declarations can configure a single or multiple values for example changing the color to teal or changing color to red as well as font to arial. In addition to this, whitespace is irrelevant but each designer will have their own preference as to how they write CSS style rules. Finally, style sheets override the browsers default styling and your style declarations will alter in the final appearance of the web page in the browser. 
+    <br>
+    <br>
+        <span class="imgcenter" style=color:crimson;>Keep in mind that users can override your styles.</span> 
+    </p>    
+</Section>
+    
+<section>
+    
+        <h2>Creating Inline Styles</h2>  
+    
+    <p>Inline styles use the style attribute and are usually applied to a single element within a page. It's essentially passsing CSS within the HTML element and isn't very efficent because it does apply to just one element. Sometimes they are useful such as with HTML based email.</p>
+    
+    <p><a href="https://www.w3schools.com/htmL/html_css.asp" ><img src="images/cssstyleexample.jpeg" title="CSS example" class="imgcenter"></a></p>
+    
+        <h2>Controlling Typography</h2>
+    
+    <p> In order to control fonts you need to understand various properties available in CSS as well as certain considerations.</p>
+    
+     <ol>
+        <Li>Font Families</Li>
+        <Li>Font Styles</Li>
+        <Li>Font weight</Li>
+        <Li>Font Size i.e Px, em or %</Li>
+      </ol>
+    
+    <dl>
+        <dt> 1. Font Families</dt>
+            <dd>Generic family - groups with a similar look like "serif or "Monospace"</dd>
+            
+        <dd>Serif fonts have small lines at the end of characters.</dd>
+            
+        <dd>Sans-serif fonts do not have those line.</dd>
+            
+        <dd>Monospace fonts have characters all the same width.
+            </dd>
+            
+        <dd>Font family- a specific font family like "Times New Roman"or "Arial."</dd>
+    </dl>
+    
+    
+    <p><a href="https://www.w3schools.com/css/css_font.asp" target="_parent"><img class="imgcenter" src="Images/serifexample.gif" title="Difference between serif and sans-serif fonts" ></a>
+    </p>
+    
+    <p> While it's not required some addition information about the CSS Box model can be very helpful when dealing with typography. The CSS box model is essentially a box that wraps around every HTML element.
+    </p>
+    
+    
+    <p><a href="https://www.geeksforgeeks.org/css-box-model/" target="_blank" title="CSS Box Model"><img class="imgcenter" src="Images/box-model.png" style="width:458px;height:258px;"></a>
+    </p>
+    
+    
+    
+</section>
+    
+    
+<section>
+    
+    
+        <h1 id="section-6">Creating Your Own Web Site</h1>
+    
+    
+    <dl>
+        
+        <dt><b>There are many steps to creating a web site.</b></dt>
+    <ol>
+        
+        <li>Choosing and purchasing a domain name.</li>
+        <li>Choosing a hosting provider.</li>
+        <li>Planing out the sute design on paper.</li>
+        <li>Creating the appropriate file structure.</li>
+        <li>Creating your HTML documents.</li>
+        <li>Creating your style sheets.</li>
+        <li>Creating content for your HTML documents.</li>
+        <li>Putting it all together.</li>
+    </ol>
+    </dl>
+    
+    </section>
+    
+    
+    
+    
+    
+</Body>
+<Footer>
+    
+    <a href="#top">Back to top</a> <a style="float:right;" href="AboutCSS3.html" target="_blank">CSS3</a>
+</Footer>
+
+</Html>

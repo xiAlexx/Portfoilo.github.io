@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+               
+    <link rel="stylesheet" type="text/css" href="CSS/normalize.css">
+    <link rel="stylesheet" type="text/css" href="CSS/mystylesheet.css">
+    
+
+    <title> AboutJavaScript </title>
+
+    <nav>
+        <ul class="navbarlist">
+            <li class="liright"><a target="_blank" href="AboutHTML.html">HTML</a></li>
+            <li class="liright"><a target="_blank" href="AboutCSS3.html">CSS3</a></li>
+            <li class="liright"><a target="_parent" href="#one">JavaScirpt Introduction</a></li>
+            <li class="liright"><a target="_parent" href="#two">JavaScirpt Outputs</a></li>
+            <li class="liright"><a target="_parent" href="#three">Conditional Statements</a></li>
+            <li class="liright"><a target="_parent" href="#four">Operators</a></li>
+            <li class="liright"><a target="_parent" href="#five">Functions</a></li>
+
+        </ul>
+    </nav>
+<style>
+    
+    #code {
+        background-color: lightgray;
+        color: red;
+        font-style: italic;
+    }
+
+    .navbarlist {
+            list-style-type:none;
+            overflow: auto;
+            background-color: white;
+            text-align:left;
+            font-size: 1.0em;
+        }
+        
+        .navbarlist a:hover { 
+            text-decoration: underline;
+            width: 100px; 
+            padding: 10px 10px;
+            margin: 10px;
+        }
+        
+        .liright {
+            float:left;
+            color: blue;
+            line-height: 10px;
+            padding: 10px;
+        }
+    
+</style>
+        
+</head>
+<body>
+        <h1 id="one" >JavaScript Introduction</h1>
+    
+    <p>You may notice most of this information will be a repeat of <a target="_blank" href="www.w3schools.org">W3Schools.org</a> Javascript however all coding done on this web page will of been created by myself and not just copied and paste.</p>
+    
+    <p>Javascript is one of the 3 languages all web developers <b>must</b> learn:</p>
+<ol>
+    <li><a target="_blank" href="AboutHTML.html.html">HTML</a> - to define the content of web pages.</li>
+    <li><a target="_blank" href="AboutCSS3.html">CSS</a> - to specify the layout of web pages.</li>
+    <li>JavaScript - to program the behavior of web pages.</li>
+</ol>
+    
+<h2>What Can JavaScript Do?</h2>
+    
+    <p>JavaScript can change HTML content. One of many JavaScript HTML methods is <span id="code">getElementById()</span> The example below "finds" an HTML element with (with id="demo"), and changes the element content (innerHRML) to "Hello JavaScript":</p>
+    
+    <p id="content">JavaScript can change HTML content</p>
+ 
+
+    <button type="button" onclick='document.getElementById("content").innerHTML = "Hello JavaScript!"'>Click Me!
+    </button>
+
+    
+    <p>JavaScript can change HTML attribute values.</p>
+    
+    <p>In this case JavaScript changes the value of the src (source) attribute of an image.</p>
+
+    
+    <button type="button" onclick="document.getElementById('myImage').src='Images/bulb-on.jpeg'">Turn on the light</button>
+
+
+    <img id="myImage" src="Images/bulb-on.jpeg" style="width:100px;">
+    
+    
+    <button type="button" onclick="document.getElementById('myImage').src='Images/pic_bulboff.gif'">Turn off the light</button>
+    
+    
+    <p id="css"> JavaScript can also change the style of an HTML element.</p>
+    
+  
+    <button type="button" onclick="document.getElementById('css').style.fontSize='35px'">Click To Change Style!</button>
+
+    
+    <p id="hide">JavaScript can show and hide HTML elements.</p>
+    
+
+    <button type="button" onclick="document.getElementById('hide').style.display='none'">Click To Hide Text!</button>
+    
+    <button type="button" onclick="document.getElementById('hide').style.display='block'">Click To Show!</button>
+  
+<h2>The Script Tag</h2>
+    
+    <p>In HTML, JavaScript code is inserted between the <span id="code">Script</span> tags. Old JavaScirpt examples may use a type of attribute: <span id="code">script type="text/Javascript."></span> The type attribute is not required. JavaScript is the default scripting language in HTML. Placing scripts at the bottom of the body element improves the display speed, because script interpretation slows down the display.</p>
+        
+    <p>Scripts can also be placed in external files like CSS, this is practical when the same code is used in many different web pages. JavaScript files have the file extension <b>.js</b>.
+    </p>
+    
+    <p id="external">Hello World (example of external .js)</p>
+    
+    <button type="button" onclick="myFunction()">Click  here to try link to a external .js</button>
+    
+    <p>Placing scripts in external files has some advantages:
+    </p>
+    
+<ul>
+    <li>It separates HTML and code.</li>
+    <li>It makes HTML and JavaScript easier to read and maintain.</li>
+    <li>Cached JavaScript files can speed up page loads time.</li>
+</ul>
+    
+    <p>An external reference can be referenced in 3 different ways:</p>
+    
+<ol>
+    <li>With a full URL. (a full web address)</li>
+    <li>With a file path. (like /js/)</li>
+    <li>Without any path.</li>
+</ol>
+    
+<h1 id
+="two">JavaScript Output</h1>
+    
+    <p>JavaScript can "display" data in different ways:</p>
+    
+<ul>
+    <li>Wiriting into an HTML element using <span id="code">innerHTML</span>.</li>
+    <li>Writing into the HTML output using <span id="code">document.write()</span></li>
+    <li>Writing into an alert box, using <span id="code">window.alert()</span></li>
+    <li>Writing into the browser console, using <span id="code">console.log()</span></li>
+</ul>
+    
+    <h2>Using innerHTML</h2>
+    
+    <p>To access an HTML element, JavaScript can use the <span id="code">document.getElementById(id)</span> method. The <span id="code">id</span> defines the HTML element. The <span id="code">innerHTML</span> property defines the HTML content.</p>
+    
+    <h2>Using Window.alert()</h2>
+    
+    <p id="alert">Using window alert will display data in a windowed box. Below I have programmed the button to answer the question 5+5 and give the answer in a windowed box once clicked:</p>
+    
+    <button
+            type="button" onclick="windowalert()">Click Here!
+    </button>
+    
+    //This isnt completed consolelog() neeeds to be put in.
+    
+<h1 id="three">Conditional Statements</h1>
+    
+            <p>In life, we make decisions based on circumstances. 
+            Think of an everyday decision as mundane as falling asleep — if we are tired, we go to bed, otherwise,
+             we wake up and start our day.
+            These if-else decisions can be modeled in code by creating conditional statements. 
+            A conditional statement checks a specific condition(s) and performs a task based on the condition(s).
+            </p>
+    
+            <p>An example of this can be seen below</p>
+            <img src="Images/controlFlow.svg" title="A template of control flow." class="imgcenter"> 
+
+            <p> We often perform a task based on a condition. For example, if the weather is nice today,
+                then we will go outside. If the alarm clock rings, then we will shut it off. If we are tired,
+                then we will go to sleep.
+            </p>
+
+            <p> In programming, we can also perform a task based 
+                on a condition using an <span id='code'>IF</span>
+                statement.
+            </p>
+            <img src="Images/IfStatement.png" title="If_statement example" alt="Example of an If statement" class="imgcenter">            
+            <p> Notice in the example above, we have an <span id="code">IF</span> statement. The 
+                <span id='code'>IF</span> statement is composed of:
+            </p>
+            
+            <ul>
+                <li> The <span id="code">IF</span> keyword follwed by a set of a parentheses 
+                    <span id="code">()</span> which is followed by a code block, or block statement,
+                    indicated by a set of curly braces.
+                </li>
+                    <br>
+                <li> Inside the parentheses, a condition is provided that evaluates to true of false.
+                </li>
+                    <br>
+                <li>If the condition evaluates to true, the code inside the curly braces run, or executes.
+                </li>
+                    <br>
+                <li>If the condition evaluates to false, the block won't execute.
+                </li>
+            </ul>
+
+            <p> In the example provided above because the variable of 'Age' is equal to 21,
+                console will log 'older then 20!', as well as 'older then 15!'.
+                If we wanted to add some default behavior to the if statement, we can add an 
+                else statement to run a block of code when the condition
+                evaluates to false. For more information on If...Else... statements 
+                <a target="_blank" href="https://www.w3schools.com/js/js_if_else.asp">Click Here!</a>
+            </p>
+
+<h1 id="four">Operators</h1>
+
+            <p> When writing conditional statements, sometimes we need
+                to use different types of operators to compare values.
+                These operators are called comparison operators.
+            </p>
+
+            <p> Here is a list of some handy comparison operators and 
+                their syntax:
+            </p>
+
+            <ul>
+                <li>Less than: < </li>
+                    <br>
+                <li>Greater than: > </li>
+                    <br>
+                <li>Less than or equal to: <= </li>
+                    <br>
+                <li>Greater than or equal to: >= </li>
+                    <br>
+                <li>Is equal to: === </li>
+                    <br>
+                <li>Is not eqaul to: !== </li>
+            </ul>
+
+            <p> Comparioson operators compare the value on the left with
+                the value on the right. 
+                
+                <br>
+                For example:            
+                <span id="code"> 10 < 12</span> 
+            </p>
+
+            <p>It can be helpful to think of comparison statements 
+                as questions. When the answer is "yes", the statement evaluates
+                to true, and when the answer is "no", the statement evaluates
+                to false. The code above would be asking: is 10 less then 12? Yes!
+                So <span id="code"> 10 < 12</span> evaluates to true. We can also use comparison operators
+                on different data types like strings:
+            </p>
+            
+            <p> <span id="code"> 'apples' === 'oranges'</span>
+                <br>
+                This statement would be false.
+            </p>
+
+            <p>In the example above, we are using the identity operator <span id="code"> (===)</span> 
+                to check if the string 'apples is the same as the string 'oranges'. Since the two
+                strings are not the same, the comaprison statement evaluates to false.
+                
+                <br>
+                
+                All comparison statments evaluate to either true or false and are made up of:
+            </p>
+
+            <ul>
+                <li>Two values that will be compared.</li>
+                    <br>
+                <li>An operator that separates the values and comapres them accordingly
+                    (>, <, <=, >=, ===, !==) 
+                </li>
+            </ul>
+
+        <h2>Logical Operators</h2>
+
+            <p> Working with conditionals means that we will be using booleans, true or false values.
+                In JavaScript, there are operators that work with boolean values known as kogical 
+                operators. We can use logical operators to add more sophisticated logic to our conditionals.
+                There are three logical operators:
+            </p>
+            <ul>
+                <li>the <i>And</i> operator (&&)</li>
+                    <br>
+                <li>the <i>OR</i> operator (||)</li>
+                    <br>
+                <li>the <i>not</i> operator, otherwise known as the <i>bang</i> operators (!)</li>
+            </ul>
+        
+        <h2>Ternary Operator</h2>
+            
+            <p>In the spirit of using short-hand syntax, we can use a ternary operator
+                to simplify an <span id="code">if...else</span> statement.
+                <br>
+                Take a look at the <span id="code">if...else</span> statement example:
+            </p>
+
+            <img src="/Images/TenaryOperatorExample.png" title="Example of an ternary operator" alt="An example of an ternary operator" class="imgcenter">
+
+            <p>We can use an ternary operator to perform the same functionality.
+                <br>
+                    In the example above:
+            </p>
+
+            <ul>
+                <li>The condition, Age, is provide before the ?.</li>
+                    <br>
+                <li>Two expressions follow the ? and are separeted by a colon :.</li>
+                    <br>
+                <li>If the condition evaluates to true, the first expression executes.</li>
+                    <br>
+                <li>If the condition evaluates to false, the second expression executes.</li>
+            </ul>
+
+            <p> Like <span id="code">if...else</span> statements, ternary operators can be used
+                for conditions which evaluate to true or false.
+            </p>
+
+        <h2>Else If Statements</h2>
+            
+            <p> We can add more conditions to our <span id="code">if...else</span> with an 
+                <a target="_blank" href="https://www.w3schools.com/js/js_if_else.asp">Else if</a> 
+                statement. The <span id="code">else if</span> statement allows for more than two 
+                possible outcomes. You can add as many <span id="code">else if</span> statements as you would
+                like, to make more complex conditionals!
+            </p>
+
+            <p> The <span id="code">else if</span> statement always comes after the 
+                <span id="code">if</span> statement and before the <span id="code">else</span>
+                statement. The <span id="code">else if</span> statement also 
+                takes a condition. 
+            </p>
+
+            <p>The <span id="code">else if</span> statements allow you to have multiple possible
+                outcomes. <span id="code">if</span>/<span id="code">else if</span>/<span id="code">else</span> 
+                statements are read from top to bottom, so the first condition that evaluates to true
+                from the top to bottom is the block that gets executed. 
+            </p>
+
+        <h2>The Switch Keyword</h2>
+            
+            <p> <span id="code">Else if</span> statements are a great tool if we need to check 
+                multiple conditions. In programming, we often find ourselves needing to check 
+                multiple values and handling each of them differently, but imagine if we needed to check 100 different values!
+                Having to write that many else if statements sounds like a pain!
+            </p>
+
+            <p> A switch statement provides an alternative syntax that is easier to read and write. 
+                A switch statement looks like this:
+            </p>
+
+            <img src="/Images/SwitchTernaryExample.png" class="imgcenter" title="Switch_Example" alt="An example of using the keyword switch.">
+
+            <ul>
+                <li> The switch keyword initiates the statement and is followed by ( ... ), which contains the value that each case will compare.
+                     In the example, the value or expression of the switch statement is newDate.
+                </li>
+                    <br>
+                <li> Inside the block, there are multiple cases. The case keyword checks if the expression matches the specified value that comes after it.
+                     The value following the first case is sunday.
+                     If the value of newDate equalled sunday that cases console log would run.
+                </li>
+                    <br>
+                <li> The break keyword tells the computer to exit the block and not execute any more code or check any other cases inside the code block.
+                     Note: Without break keywords, the first matching case will run, but so will every subsequent case regardless of whether or not it matches—including the default.
+                     This behavior is different from if/else conditional statements that execute only one block of code.
+                </li>
+                    <br>
+                <li> At the end of each switch statement, there is a default statement. 
+                     If none of the cases are true, then the code in the default statement will run.
+                </li>
+            </ul>
+
+    <h1 id="five">Functions</h1>
+            
+        
+        <p> When first learning how to calculate the area of a rectangle, there is a sequence of steps to calculate the correct answer: 
+        
+            </p>
+        
+            <ol>
+                <li>Measure the width of the rectangle.</li>
+                    <br>
+                <li>Measure the height of the rectangle.</li>
+                    <br>
+                <li>Multiply the width and height of the rectangle.</li>
+            </ol>
+
+        <p> With practice, you can calculate the area of the rectangle without
+            being instructed with these three steps every time. We can calculate the area of
+            one rectangle with the following code:
+        </p>
+
+        <p><span id="code">
+            const width = 10;
+                <br>
+            const height = 6;
+                <br>
+            const area =  width * height;
+                <br>
+            console.log(area); // Output: 60 </span>
+        </p>
+
+        <p>Imagine being asked to calculate the area of three different rectangles:
+            
+            </p>
+
+        <p><span id="code">// Area of the first rectangle
+                <br>
+            const width1 = 10;
+                <br>
+            const height1 = 6;
+                <br>
+            const area1 =  width1 * height1;
+                <br>
+                <br>
+            // Area of the second rectangle
+                <br>
+            const width2 = 4;
+                <br>
+            const height2 = 9;
+                <br>
+            const area2 =  width2 * height2;
+                <br>
+                <br> 
+            // Area of the third rectangle
+                <br>
+            const width3 = 10;
+                <br>
+            const height3 = 10;
+                <br>
+            const area3 =  width3 * height3;
+            </span>
+        </p>
+        
+        <p> In programming, we often use code to perform a specific task multiple
+            times. Instead of rewriting the same code, we can group a block of code 
+            together and associate it with one task, then we can reuse that block of 
+            code whenever we need to perform the task again. We achieve this by creating 
+            a <i>Function</i>. A function is a reusable block of code that groups together 
+            a sequence of statements to perfrom a specific task. 
+        </p>
+
+    <h2>Function Declarations</h2>
+        
+        <p> In JavaScirpt, there are many ways to create a function. One way to create a function 
+            is by using a <i>function declaration</i>. Just like how a variable declaration binds 
+            a value to a variable name, a function declaration binds a function to a name, 
+            or identifier. Take a look at the anatomy of a function declaration below:
+        </p>
+        
+        <img src="Images/FunctionDeclaration.svg" class="imgcenter" title="Anatomy of a function." alt="Anatomy of a function.">
+
+        <p>A function declaration consists of:
+            </p>
+
+    <ul>
+        <li>The <span id="code">function</span> keyword.</li>
+            <br>
+        <li>The name of the function, or its identifier, followed by parentheses.</li>
+            <br>
+        <li>A function body, or the block of statements required to perform a specific task, enclosed in the functions curly bracket. </li>
+    </ul>
+
+    <p> A function declaration is a function that is bound to an identifier, or name.
+        In the next exercise we will go over how to run the code inside the function body.
+    </p>
+
+    <p> We should also be aware of the <i>hoisting</i> feature in JavaScirpt which allows access to function 
+        declarations before they are defined.
+    </p>
+
+    <p>Take a look at a example of hoisting:
+    </p>
+
+    <p><span id="code"> 
+        greetWorld(); // Output: Hello, World!
+        <br>
+        function greetWorld() CurlyBrackets
+        <br>
+        console.log('Hello, World!');
+        ClosedCurlyBrackets
+        </span>
+    </p>
+
+    <p> Notice how hoisting allowed <span id="code">greetWorld()</span> to be called before the 
+        <span id="code">greetWorld()</span> function was defined! Since hositing isn't considered 
+        good practice, we simply want you to be aware of this feature.
+    </p>
+
+<h2>Calling Functions</h2>
+
+    <p>As we saw in previous exercises, a function a declaration binds a function to an idenifier. 
+        <br>
+        <br>
+        However, a function declaration does not ask the code inside the function body to run, it just declares
+        the existence of the function. The code inside function body runs, or executes, only
+        when the function is <i>called</i>. 
+        <br>
+        <br>
+        To call a function in your code, you type the function name followed by parentheses.
+    </p>
+    
+    <img src="Images/CallingAFunction.svg" class="imgcenter" title="Calling a function" alt="An example of calling a function">
+
+    <p> This function call executes the function body, or all the statements between the curly 
+        braces in the function declaration. We can call the same function as many times as needed.
+    </p>
+
+<h2>Parameters And Arguments</h2>
+
+    <p>So far, the functions we've looked at execute a task without an input. However, some functions
+        can take inputs and use the inputs to perform a task. When declaring a function, we can specify it's 
+        <i>parameters.</i> Parameters allow functions to accpect input(s) and perform a task using the 
+        input(s). We use parameters as placeholders for information that will be passed to the function when 
+        it is called. 
+    </p>
+
+    <a target="_blank" href="https://www.w3schools.com/js/js_function_parameters.asp"><img class="imgcenter" src="Images/ParametersAndArgumentsExample.jpg" title="Parameters And Arguments Example" alt="An example of Parameters And Arguments Example"></a>
+
+    <p>In the diagram above, <span id="code">calculateArea()</span>, computes the area of a rectangle, based on 
+        two inputs, <span id="code">width</span> and <span id="code">height</span>. The parameters are specified 
+        between the parenthesis as <span id="code">width</span> and <span id="code">height</span> act as placeholders
+        for values that will ve multiplied together.
+        <br>
+        <br>
+       When calling a function that has parameters, we specify the values in the parenthesis that follow the function 
+        name. The values that are passed to the function when it is called are called <i>arguments</i>. Arguments 
+        can bes passed to the function as values or variables. Please note that the order in which arguments are passed 
+        and assigned follows the order that the parameters are declared. By using parameters, <span id="code">calculateArea()</span>  
+        can be reused to compute the area of any rectangle! Functions are a powerful tool in computer programming.
+    </p>
+
+<h2>Default Parameters</h2>
+
+    <p>One of the features added in ES6 is the ability to use <i>default parameters</i>. 
+        Defaults parameter allow parameters to have a predeterminded value in case there is no argument passed into the 
+        function or if the argument is <span id="code">Undefined</span> when called.
+    <br>
+    <br>
+    </p>
+
+    <p>Take a look at the code snippet below that uses a default parameter:</p>
+
+    <p><span id="code">function greeting (name = 'stranger') {
+        <br>
+        console.log(`Hello, ${name}!`)
+        <br>
+      }
+        <br>
+        <br>
+      greeting('Nick') // Output: Hello, Nick!
+        <br>
+      greeting() // Output: Hello, stranger!
+        </span>
+        
+    </p>
+
+    <ul>
+        <li>In the example above, we used the <span id="code">=</span> operator to assign the 
+            parameter <span id="code">name</span> a default value of 
+            <span id="code">'stranger'</span>. This is useful to have in case we ever want to include 
+            a non-personalized default greeting!
+            </li>
+            <br>
+        <li>When the code calls <span id="code">greeting('Nick)</span> the value of the argument is 
+            passed in and, <span id="code">'Nick'</span>, will override the default parameter of 
+            <span id="code">'stranger'</span> to log <span id="code">'Hello, Nick!'</span> to the console.
+            </li>
+            <br>
+        <li>When there isn't an agrument passed into <span id="code">greeting()</span>, the default value 
+            of <span id="code">'stranger</span> is used, and <span id="code">'Hello, stranger!'</span> is 
+            logged to the console.
+            </li>
+    </ul>
+
+    <p>By using a default parameter, we account for situations when an argument isn't passed into a function 
+        that is expecting an agrument.
+    </p>
+    
+<h2>Return</h2>
+
+    <p>When a function is called, the computer will run through the function's code and evaluate the result of calling 
+        the function. By default that resulting value is <span id="code">undefined</span>.
+    </p>
+
+    <p><span id="code">function rectangleArea(width, height) {
+        <br>
+        let area = width * height;
+        <br>
+      }
+        <br>
+        console.log(rectangleArea(5, 7))
+        <br> 
+        // Prints undefined
+    </span>
+    </p>
+
+    <p>In the code example, it defined the function to calculate the <span id="code">area</span> 
+        of a <span id="code">width</span> and <span id="code">height</span> parameter. Then 
+        <span id="code">rectangleArea()</span> is called/invoked with the arguments 
+        <span id="code">5</span> and <span id="code">7</span>. But after we print the results we get 
+        <span id="code">undefined</span>.
+        <br>
+        <br> 
+        So is this function incorrect?
+        <br>
+        <br>
+        Well No! In fact, the function worked fine, and the computer did calculate the area as 
+        <span id="code">35</span>, but we didn't capture it. Which is where the keyword 
+        <span id="code">return</span> is needed.
+    </p>
+
+    <p><span id="code">function calculateArea(width, height) {
+        <br>
+        const area = width * height;
+        <br>
+        return area;
+        <br>
+      }
+    </p>
+
+    <p>To pass back information from the function call, we use a <a href="https://www.w3schools.com/python/ref_keyword_return.asp">return statement</a>.
+        To create a return statement, we use the <span id="code">return</span> keyword 
+        followed by the value that we wish to return. Like seen above,
+        if the value is omitted, <span id="code">undefined</span> is returned instead.
+    </p>
+
+    <p>When a <span id="code">return</span> statement is used in a function body, 
+        the execution of the function is stopped and the code
+        that follows it will not be executed. 
+        Look at the example below:
+    </p>
+
+    <p><span id="code">function rectangleArea(width, height) {
+        <br>
+        if (width < 0 || height < 0) {
+            <br>
+          return 'You need positive integers to calculate area!';
+          <br>
+        }
+        <br>
+        return width * height;
+        <br>
+      }
+        </span>
+    </p>
+
+    <p>If an argument for <span id="code">width</span> or <span id="code">height</span> 
+        is less than <span id="code">0</span>,
+        then <span id="code">rectangleArea()</span> will return 
+        <span id="code">'You need positive integers to calculate area!'</span>. 
+        The second return statement <span id="code">width * height</span> will not run.
+    </p>
+
+    <p>The <span id="code">return</span> keyword is powerful 
+        because it allows functions to produce an output.
+        We can then save the output to a variable for later use.
+    </p>
+
+<h2>Helper Functions</h2>
+
+    <p>We can also use the <span id="code">return</span> value of a function 
+        inside another function. These functions 
+        being called within another function are often
+        referred to as helper functions. Since each 
+        function is carrying out a specific task, it 
+        makes our code easier to read and debug if necessary.
+    </p>
+
+    <p>If we wanted to define a function that converts 
+        the temperature from Celsius to Fahrenheit,
+        we could write two functions like:
+    </p>
+
+    <p><span id="code">function multiplyByNineFifths(number) {
+        <br>
+        return number * (9/5);
+        <br>
+      };
+      <br>
+      <br>
+       function getFahrenheit(celsius) {
+        <br>
+        return multiplyByNineFifths(celsius) + 32;
+        <br>
+      };
+        <br>
+        <br>            
+      getFahrenheit(15); // Returns 59</span>
+    </p>
+
+    <p>In the example above:
+
+    </p>
+
+    <p>
+        <ul>
+            <li><span id="code">getFahrenheit()</span> is called 
+                and <span id="code">15</span> is passed as an argument.
+            </li>
+                <br>
+            <li>The code block inside of 
+                <span id="code">getFahrenheit()</span> 
+                 calls <span id="code">multiplyByNineFifths()</span>
+                 and passes <span id="code">15</span> as an argument.
+            </li>
+                <br>
+            <li><span id="code">multiplyByNineFifths()</span> takes 
+                 the argument of <span id="code">15</span> for the 
+                 <span id="code">number</span> parameter.
+            </li>
+                <br>
+            <li>The code block inside of 
+                <span id="code">multiplyByNineFifths()</span> 
+                function multiplies <span id="code">15</span> 
+                by <span id="code">(9/5), which evaluates to 
+                <span id="code">27</span>.
+            </li>
+                <br>
+            <li><span id="code">27</span> is returned back to the function 
+                call in <span id="code">getFahrenheit()</span>.
+            </li>
+                <br>
+            <li><span id="code">getFahrenheit()</span> continues to 
+                execute. It adds <span id="code">32</span> to 
+                <span id="code">27</span>, which evaluates to 
+                <span id="code">59</span>.
+            </li>
+                <br>
+            <li>Finally, <span id="code">59</span> is returned back 
+                to the function call <span id="code">getFahrenheit(15)</span>.
+            </li>
+        </ul>
+    </p>
+
+    <p>We can use functions to section off small bits of logic or 
+        tasks, then use them when we need to. Writing helper 
+        functions can help take large and difficult tasks and break 
+        them into smaller and more manageable tasks.
+    </p>
+
+<h2>Functions Expressions</h2>
+
+    <p>Another way to define a function is to use a function 
+        <i>expression</i>. To define a function inside an expression, 
+        we can use the <span id="code">function</span> keyword. In a 
+        function expression, the function name is usually omitted.
+        A function with no name is called an <i>anonymous function</i>.
+        A function expression is often stored in a variable in 
+        order to refer to it.
+    </p>
+
+    <p>Consider the following expression:</p>
+
+    <img src="Images/FunctionExpressionsImageOne.svg" title="Function Expression Example." alt="An image on a function expression convertion." class="imgcenter">
+
+    <p>To declare a function expression:</p>
+
+    <p>
+        <ol>
+            <li>Declare a variable to make the variables name be the name,
+                or identifier, of your function. Since the release of ES6,
+                it is common practice to use <span id="code">const</span> as 
+                the keyword to declare the variable.
+            </li>
+                <br>
+            <li>Assign as that variable's value an anonymous function created 
+                by using the <span id="code">function</span> keyword followed by a set of parentheses 
+                with possible parameters. Then a set of curly braces that 
+                contain the function body.
+            </li>
+        </ol>
+    </p>
+
+    <p>To invoke a function expression, write the name of the variable 
+        in which the function is stored followed by parentheses 
+        enclosing any arguments being passed into the function.
+    </p>
+
+    <p>
+        <span id="code">variableName(argument1, argument2)</span>
+    </p>
+
+    <p>Unlike function declarations, function expressions are not 
+        hoisted so they cannot be called before they are defined.
+    </p>
+
+    <p>Here is an example:</p>
+
+    <p>
+        <span id="code">const plantNeedsWater = function(day) {
+        <br>
+        if (day === 'Wednesday') {
+            <br>
+          return true;
+            <br>
+        } else {
+            <br>
+          return false;
+            <br>
+        }
+            <br>
+      };
+            <br>
+            <br>
+      plantNeedsWater('Tuesday');
+            <br>
+            <br>     
+      console.log(plantNeedsWater('Tuesday'))
+        </span>
+    </p>
+
+<h2>Arrow Functions</h2>
+
+    <p>ES6 introduced arrow function syntax, a shorter way to 
+        write functions by using the special “fat arrow” 
+        <span id="code">() =></span> notation.
+    </p>
+
+    <p>
+        <a target="_blank" href="https://www.w3schools.com/js/js_arrow_function.asp">Arrow Functions</a>
+        remove the need to type out the keyword <span id="code">function</span> 
+        every time you need to create a function. Instead, you first 
+        include the parameters inside the <span id="code">( )</span> 
+        and then add an arrow <span id="code">=></span> that points 
+        to the function body surrounded in <span id="code">{ }</span> 
+        like this:
+    </p>
+
+    <p><span id="code">const rectangleArea = (width, height) => {
+        <br>
+        let area = width * height;
+        <br>
+        return area;
+        <br>
+      };
+      </span>
+    </p>
+
+    <p>It's important to be familiar with the multiple ways of 
+        writing functions because you will come across each of 
+        these when reading other JavaScript code.
+    </p>
+
+<h2>Concise Body Arrow Functions</h2>
+
+    <p>JavaScript also provides several ways to refactor arrow 
+        function syntax. The most condensed form of the function is 
+        known as concise body. We'll explore a few of these techniques 
+        below:
+    </p>
+
+    <p>
+        <ol>
+            <li>Functions that take only a single parameter do not need that 
+                parameter to be enclosed in parentheses. However, if a 
+                function takes zero or multiple parameters, parentheses are 
+                required.
+            </li>
+                <br>
+        <img src="Images/parameters.svg" title="Parameters" alt="Parameters Examples" class="imgcenter">
+                <br>
+            <li>A function body composed of a single-line block does not need curly 
+                braces. Without the curly braces, whatever that line evaluates will be 
+                automatically returned. The contents of the block should immediately 
+                follow the arrow <span id="code">=></span> and the <span id="code">return</span> 
+                keyword can be removed. This is referred to as implicit return.
+            </li>
+                <br>
+        <img src="Images/single&multi-line_block.svg" title="Line_Blocks_Example" alt="An example of single and multi-line blocks." class="imgcenter">
+        </ol>
+    </p>
+
+    <p>So if we have a function:</p>
+
+    <p>
+        <span id="code">const squareNum = (num) => {
+                <br>
+            return num * num;
+                <br>
+          };
+        </span>
+    </p>
+    
+    <p>We can refactor the function to:</p>
+
+    <p><span id="code">Const squareNum = num => num * num</span></p>
+
+    <p>Notice the following changes:</p>
+
+<ul>
+    <li>The parentheses arpund <span id="code">num</span>
+        have been removed, since it has a single parameter.
+    </li>
+    <br>
+    <li>The curly braces <span id="code">{}</span> have 
+        been removed since the function consists of a single-line 
+        block.
+    </li>
+    <br>
+</ul>
+
+<h2>Review Functions</h2>
+
+    <p>Give yourself a pat on the back, you just navigated through 
+        functions!
+    </p>
+
+    <p>In this lesson, we covered some important concepts about functions:</p>
+
+<ul>
+    <li>A <i>function</i> is a reusable block of code that groups together a 
+        sequence of statements to perform a specific task.
+    </li>
+    <br>
+    <li>A function declaration: </li>
+</ul>
+
+    <p><span id="code">function greetWorld() {
+        <br>&nbsp;console.log('Hello, World');
+        <br>}
+    </span></p>
+
+<ul>
+    <li>A parameter is a named variable inside a functions block which will be 
+        assigned the value of the argument passed in when the function is invoked.
+    </li>
+    <br>
+    <li>We also learned to call a function in your code.</li>
+    <br>
+    <li>ES6 introduces new ways of handling arbitary parameters through default parameters 
+        which allow us to assign a default value to a parameter in case no argument is passed 
+        into the function.
+    </li>
+    <br>
+    <li>To return a value from a function, we use a return statement.</li>
+    <br>
+    <li>To define a function using arrow function notation.</li>
+    <br>
+    <li>To define a function using function expressions.</li>
+    <br>
+    <li>We also learned that function definition can be made concise usinf concise arrow notation.</li>
+    
+</ul>
+
+    <p>It's good to be aware of the differences between function expressions, 
+        aroow functions, and function declarations. As you program more in JavaScript, you'll see a 
+        wide variety of how these function types are used.
+    </p>
+
+<h1>Scope</h1>
+
+    <p>An important idea in programming is <i>scope</i>. Scope defines where variables can be accessed 
+        or referenced. While some variables can be accessed from anywhere within a program, other variables 
+        may only be available in a specific context.
+    </p>
+
+    <p>You can think of scope like the view of the night sky from your window. Everyone who lives on the planet 
+        Earth is in the global scope of the stars. The stars are accessible <i>globally</i>. Meanwhile, if you live 
+        in a city, you may see the city skyline or the river. The 
+        skyline and river are only accessible <i>locally</i> in your city, but you can still see the stars that are 
+        available globally.
+    </p>
+
+    <p>Over the next few exercises, we'll explore how scope relates to variables and learn best 
+        practices for variable declaration.
+    </p>
+
+<h2>Blocks and Scope</h2>
+
+    <p>Before we talk more about scope, we first need to talk about <i>blocks</i></p>
+
+    <p>We've seen blocks used before in functions and 
+        <span id="code">if</span> statements. A block is code 
+        found inside the a set of curly braces <span id="code">{}</span>. 
+        Blocks help group one or more statements together and serve as an 
+        important marker for code. A block of code could be a function 
+        for example:
+    </p>
+<pre>
+<code>
+    const logWaterColor = () => {
+        let water = 'Blue';
+        console.log(color);
+        //Prints 'Blue'
+    }
+</code>
+</pre>
+
+    <p>Notice how the function body is actually a block of code.</p>
+
+<h2>Global Scope</h2>
+
+    <p><i>Scope</i> is the context of which variables are declared and can exist either outside of or in <i>Blocks</i></p>
+
+    <p><b>Global Scope</b> has the power to delcare variables outside of blocks. These variabls are call <i>global variables</i>. This means that global scope can be accessed by any code in a program, including code in blocks.</p>
+
+    <p>Lets's take a look at an example I made:</p>
+<pre>
+<code>
+    const water = 'Blue';
+        
+    const logWaterColor = () => {
+        return water;
+        //Output is 'Blue' 
+    };
+
+    console.log(logWaterColor());
+    //Prints 'Blue' to termial
+</code>
+</pre>
+
+    <p>Notice two things with this example:</p>
+
+    <ol>
+        <li>Even though the <span id="code">water</span> variable is declared outside of the block, it can be accessed in the function block, giving it global scope.</li>
+
+        <br>
+
+        <li><span id="code">water</span> can be accessed within the <span id="code">logWaterColor</span> function block.</li>
+    </ol>
+    
+    <p>Find out more about Global Scopes. <a target="_blank" href="https://www.codecademy.com/courses/introduction-to-javascript/lessons/scope/exercises/global-scope">Click here</a></p>
+
+    
+
+
+    
+
+
+
+
+
+
+
+<script src="JS/myScript.js"></script>   
+</body>
+<footer>
+</footer>
+</html>

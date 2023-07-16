@@ -1,0 +1,202 @@
+/* Reset default styles */
+body, nav, ul, li, a, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+  }
+  
+  /* Navbar styles */
+  .navbar {
+    background-color: royalblue;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: opacity 1s;
+  }
+
+  .navbar-fixed {
+    opacity: 0;
+  }
+  
+  /*Logo*/
+    #logo1 {
+      width: 100px;
+      height: 100px;
+      float: left;
+      border: 2px solid royalblue;
+      border-radius: 50%;
+      
+  }
+
+    #htmlLogo {
+      width: 100px;
+      height: 100px;
+      border-radius: 10%;
+    }
+
+    #hangmanLogo {
+      width: 100px;
+      height: 100px;
+      border-radius: 10%;
+    }
+  
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+  }
+  
+  .nav-links li {
+    margin: 0 10px;
+  }
+  
+  .nav-links li a {
+    color: white;
+    padding: 15px;
+    
+  }
+  
+  .nav-links li a:hover {
+    background-color: #fff; 
+    color: royalblue;
+    border-radius: 5px;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: royalblue;
+    min-width: 150px;
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: white;
+    padding: 10px;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown.show .dropdown-content {
+    display: block;
+  }
+  
+  /* Additional styles for the sections */
+header {
+    background-image: url('/Project_1/Images/GetStarted.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 0.7px 0.7px black;
+    text-align: center;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .about-section {
+    background-color: lightgray;
+    padding: 60px 0;
+  }
+  
+  .about-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .portfolio-section {
+    padding: 80px 0;
+  }
+  
+  .portfolio-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .portfolio-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  /*Attempt at using calc*/
+  .portfolio-item {
+    width: calc(33.33% - 20px);
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  .portfolio-item img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .portfolio-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .portfolio-item p {
+    font-size: 16px;
+  }
+  
+  .contact-section {
+    background-color: royalblue;
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+  }
+  
+  .contact-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .contact-section p {
+    font-size: 18px;
+    margin-bottom: 40px;
+  }
+  
+  .btn {
+    background-color: #fff; 
+    color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  footer {
+    background-color: #f1f1f1;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  footer p {
+    font-size: 14px;
+  }
+  
+  

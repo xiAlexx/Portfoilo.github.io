@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Porters-Lab.com/Hangman</title>
+  
+  <style>
+    
+    body {
+      background-image: url(/Project_3/Images/graveyard.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center, center;
+    }
+    .center-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 200px;
+      width: 1250px;
+      text-align: center;
+      margin-top: 150px;
+      color: darkred;
+    }
+
+    .guess-container {
+      margin-top: 20px;
+      color: white
+    }
+
+    #guesses-left {
+      position: absolute;
+      bottom: 50px;
+      right: 10px;
+      color: white;
+      font-size: larger;
+    }
+
+    #logo {
+      border: 2px solid black;
+      border-radius: 50%;
+      width: 100px;
+      height: auto;
+      float: left;
+      margin: 2px 30px -30px;
+      align-items: center;
+    }
+
+  #header {
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    opacity: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    margin-bottom: 100px;
+  }
+
+  #title {
+    color: bisque;
+    margin: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: xx-large;
+  }
+  </style>
+</head>
+
+<header>
+  <div id="header">
+    <img id="logo" src="/Project_3/Images/PortersLabLogo.png" alt="My logo">
+    <p id="title">Extreme  Hangman</p>
+  </div>
+</header>
+<body>
+
+  <div id="guesses-left"></div>
+
+  <div class="center-container">
+    <div id="word-display"></div>
+
+    <div class="guess-container">
+      <label for="guess-input">Guess a letter:</label>
+      <input type="text" id="guess-input">
+      <button id="guess-button">Guess</button>
+      <button id="restart-button">Restart</button>
+    </div>
+  </div>
+
+  <script src="hangman.js"></script>
+</body>
+</html>
