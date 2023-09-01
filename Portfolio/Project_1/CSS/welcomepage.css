@@ -41,6 +41,12 @@ body, nav, ul, li, a, h1, h2, p {
       height: 100px;
       border-radius: 10%;
     }
+
+    #project2Logo {
+      width: 200px;
+      height: 200px;
+      border-radius: 10%;
+    }
   
   .nav-links {
     display: flex;
