@@ -1547,8 +1547,324 @@
     </code>
     </pre>
 
-    <p>In the loop above, we've named our iterator variable <span id="code">i</span>. This is a variable naming convention you'll see in a lot of loops When we use <span id="code">i</span> to iterate through arrays we can think of it as being short-hand for the word index. Notice how our stopping condition checks that</p>
+    <p>In the loop above, we've named our iterator variable <span id="code">i</span>. This is a variable naming convention you'll see in a lot of loops When we use <span id="code">i</span> to iterate through arrays we can think of it as being short-hand for the word index. Notice how our stopping condition checks that <span id="code">i</span> is less than <span id="code">animals.length</span>. Rememeber that arrays are zero-indexed, the index of the last element of an array is equivalent to the length of that array minus 1. If we tried to access an element at the index of <span id="code">animals.length</span> we will have gone too far!</p>
 
+    <p>With <span id="code">for</span> loops, it's easier for us to work elements in arrays.</p>
+
+    <h2>Nested Loops</h2>
+
+    <p>When we have a loop running inside another loop, we call that a <i>nested loop</i>. One use for a nested <span id="code">for</span> loop is to compare the elements in two arrays. For each round of the outer <span id="code">for</span> loop, the inner <span id="code">for</span> loop will run completely.</p>
+
+    <p>Let's look at an example of a nested loop:</p>
+
+    <pre>
+    <code>
+    const myArray = [6, 19, 20];
+    const yourArray = [19, 81, 2];
+    for (let i = 0; i < myArray.length; i++) {
+        for (let j = 0; j < yourArray.length; j++) {
+            if (myArray[i] === yourArray[j]) {
+                console.log('Both arrays have the number: ' + yourArray[j]);
+            }
+        }
+    }
+    </code>
+    </pre>
+
+    <p>Let's think about what's happening in the nested loop in our example. For each element in the outer loop array, <span id="code">myArray</span>, the inner loop will run in its entirety comparing the current element in the inner array, <span id="code">yourArray[j]</span>. When it finds a match, it prints a string to the console. So our output for this example would be 'Both arrays have the number: 19' Personally I had some trouble learning this as at first it seems very complicated I urge you to learn this and practice as much as possible with nested loops, after sometime it becomes very simple.</p>
+
+    <h2>The While Loop</h2>
+
+    <p>You're doing great getting this far, thank you for going through this with me. Now we are going to learn about a different type of loop: the while loop. To start, let's convert a <span id="code">for</span> loop into a <span id="code">while</span> loop to help understand how this works personally I fine if you have practiced for loops, while loops are less complicated. Anyways let's take a look:</p>
+
+    <pre>
+    <code>
+        // A for loop that prints 1, 2, and 3
+        for (let counterOne = 1; counterOne < 4; counterOne++){
+            console.log(counterOne);
+        }
+
+        // A while loop that prints 1, 2, and 3
+        let counterTwo = 1;
+        while (counterTwo < 4) {
+            console.log(counterTwo);
+            counterTwo++;
+        }
+
+    </code>
+    </pre>
+
+    <p>Let's break down what's happening with our <span id="code">while</span> loop syntax:</p>
+
+    <ul>
+        <li>The <span id="code">counterTwo</span> variable is declared before the loop. We can access it inside our <span id="code">while</span> loop since it's in the global scope.</li>
+        <br>
+        <li>We start our loop with the keyword <span id="code">while</span> followed by our stopping condition, or <i>test condition</i>. This will be evaluated before each round of the loop. While the condition evaluates to <span id="code">true</span>, the block will continue to run. Once it evaluates to <span id="code">false</span> the loop will stop.</li>
+        <br>
+        <li>Next, we have our loop's code block which prints <span id="code">counterTwo</span> to the console and increments <span id="code">counterTwo</span></li>
+    </ul>
+
+    <p>What would happen if we didn't increment <span id="code">counterTwo</span> inside our block? If we didn't include this, <span id="code">counterTwo</span> would always have its initial value, <span id="code">1</span>. That would mean the testing condition <span id="code">counterTwo < 4</span> would always evaluate to <span id="code">true</span> and our loop would never stop running! This is called an <i>infinite loop</i> and it's something we always want to <b>avoid</b>. Infinite loops can take up all of your computer's processing power potentially freezing your computer.</p>
+
+    <p>So you may be wondering when to use a <span id="code">while</span> loop! The syntax of a <span id="code">while</span> loop is ideal when we don't know in advance how many times a loop should run. Think of eating like a <span id="code">while</span> loop: When you start taking bites, you don't know the exact number you'll need to become full. Rather you'll eat <span id="code">while</span> you're hungry. In situations when we want a loop to execute an undertermined number of times, <span id="code">while</span> loops are the best choice.</p>
+
+    <h2>Do While Statements</h2>
+
+    <p>In some cases, you want a piece of code to run at least once and then loop based on a specific condition after its initial run. This is where the <span id="code">do...while</span> statement comes in.</p>
+
+    <p>A <span id="code">do...while</span> statement says to do a task once and then keep doing it until a specified condition is no longer met. The syntax for a <span id="code">do..while</span> statement looks like this:</p>
+
+    <pre>
+    <code>
+        let countString = '';
+        let i = 0;
+
+        do {
+            countString = countString + i;
+            i++;
+        } while (i < 5);
+
+        console.log(countString);
+    </code>
+    </pre>
+
+    <p>In this example, the code block makes changes to the <span id="code">countString</span> variable by appending the string form of the <span id="code">i</span> variable to it. First, the code block after the <span id="code">do</span> keyword is executed once. Then the condition is evaluated. If the condition evaluates to <span id="code">true</span>, the block will execute again. The looping stops when the condition evaluates to <span id="code">false</span>.</p>
+
+    <p>Note that the <span id="code">while</span> and <span id="code">do...while</span> loop are different! Unlike the <span id="code">while</span> loop, <span id="code">do...while</span> will run at least once whether or not the condition evaluates to <span id="code">true</span>.</p>
+
+    <pre>
+    <code>
+        const firstMessage = 'I will print!';
+        const secondMessage = 'I will not print!'; 
+
+        // A do while with a stopping condition that evaluates to false
+        do {
+            console.log(firstMessage)
+        } while (true === false);
+
+        // A while loop with a stopping condition that evaluates to false
+        while (true === false){
+            console.log(secondMessage)
+        };
+    </code>
+    </pre>
+
+    <h2>The Break Keyword</h2>
+
+    <p>Imagine we're looking to adopt a dog. We plan to go to the shelter every day for a year and then give up. But what if we meet our dream dog on day 65? We don't want to keep going to the shelter for the next 300 days just because our original plan was to go for a whole year. In our code, when we want to stop a loop from continuing to execute even though the original stopping condition we wrote for our loop hasn't been met, we can use the keyword <span id="code">break</span>.</p>
+
+    <p>The <span id="code">break</span> keyword allows programs to 'break' out of the loop from within the loop's block.</p>
+
+    <p>Let's check out the syntax of a <span id="code">break</span> keyword:</p>
+
+    <pre>
+    <code>
+        for (let i = 0; i < 99; i++) {
+            if (i > 2 ) {
+               break;
+            }
+            console.log('Banana.');
+        }
+          
+        console.log('Orange you glad I broke out the loop!');
+    </code>
+    </pre>
+    
+    <p>This is the output for the code above:</p>
+
+    <pre>
+    <code>
+        Banana.
+        Banana.
+        Banana.
+        Orange you glad I broke out the loop!
+    </code>
+    </pre>
+
+    <p><span id="code">break</span> statements can be especially helpful when we're looping through large data structures! With breaks, we can add test conditions besides the stopping condition, and exit the loop when they're met.</p>
+
+    <h1>High-Order Functions</h1>
+
+    <p>We are often unaware of the number of assumptions we make when communicating in our native languages. If we told you to count to three, we would expect you say the numbers one, two, three. We assumed you would know to start with one and end with three. With programming, we need to be more explicit with our directions to the computer. Here's how we might tell the computer to count to three.</p>
+
+    <pre>
+    <code>
+        for (let i = 1; 1 <= 3; i++) {
+            console.log(i);
+        }
+    </code>
+    </pre>
+
+    <p>When we speak to other humans, we share a vocabulary that provides quick ways to communicate complicated concepts. When we say the word 'bake', it calls to mind a familiar subroutine-preheating an oven, putting something into an oven for a set amount of time, and finally removing it. This allows us to <i>abstract</i> away a lot of the details and communicate key concepts more concisely. Instead of listing all those details, we can say, 'We baked a cake,' and still impart all that meaning to you.</p>
+
+    <p>In this chapter we'll learn how to use 'abstraction' in programming by writing functions. In addition to allowing us to reuse our code, functions help to make clear, readable programs. If you encounter <span id="code">countToThree()</span> in a program, you might be able to quickly guess what the function does without having to stop and read the function's body.</p>
+
+    <p>We're also going to learn about a way to add another level of abstraction to our programming: <i>higher-order functions. Higher-order functions</i> are functions that accept other functions as arguments and/or return functions as output. This enables us to build abstractions on other abstractions, just like "We hosted a birthday party" is an abstraction that may build on the abstraction "We made a cake."</p>
+
+    <h2>Functions As Data</h2>
+
+    <p>JavaScirpt functions behave like any other data type in the language; we can assign functions to variables, and we an reassign them to new variables.</p>
+
+    <p>Below, we have an annoyingly long function name that hurts the readability of any code in which it's used. Note: If the below function's syntax feels unfamiliar, revisit the arrows functions execrise to refresh your knowledge on ES6 arrow notation.</p>
+
+    <pre>
+    <code>
+        const announceThatIAmDoingImportantWork = () => {
+            console.log("I'm doing very important work!");
+        };
+    </code>
+    </pre>
+
+    <p>Let's pretend this function does important work and needs to be called repeatedly. To rename this function without sacrificing the source code, we can re-assign the function to a variable with a suitably short name:</p>
+
+    <pre>
+    <code>
+        const busy = announceThatIAmDoingImportantWork;
+
+        busy(); // This function call barely takes any space!
+    </code>
+    </pre>
+
+    <p><span id="code">busy</span> is a variable that holds a <i>reference</i> to our original function. If we could look up the address in memory of <span id="code">busy</span> and the address in memory of <span id="code">announceThatIAmDoingImportantWork</span> they would point to the same place. Our new <span id="code">busy()</span> function can be invoked with parentheses as if that was the name we originally gave our function.</p>
+
+    <p>Notice how we assign <span id="code">announceThatIAmDoingImportantWork</span> without parentheses as the value to the <span id="code">busy</span> variable. We want to assign the value of the function itself, not the value it returns when invoked.</p>
+
+    <p>In JavaScirpt, functions are <i>first class objects</i>. This means that, like other objects you've encountered, JavaScirpt functions can have properties and methods.</p>
+
+    <p>Since functions are a type of object, they have properties such as <span id="code">.length</span> and <span id="code">.name</span>, and methods such as <span id="code">.toString()</span>. You can see more about methods and properties of functions in the Docs. Here you can find a link to the method <span id="code">.toString()</span>. You'll notice I am a contributor to the codecademy docs for the method <span id="code">.toString()</span> <a target="_blank" href="https://www.codecademy.com/resources/docs/javascript/strings/toString">Docs</a></p>
+
+    <p>Functions are special because we can invoke them, but we can still treat them like any other type of data.</p>
+
+    <h2>Functions As Parameters</h2>
+
+    <p>As you know, a parameter is a placeholder for the data that gets passed into a function. Since functions can behave like any other type of data in JavaScript, it might not surprise you to learn that functions can accept other functions as parameters. A <i>higher-order function</i> is a function that either accepts functions as parameters, returns a function, or both! We call functions that get passed in as parameters <i>callback functions</i>. Callback functions get invoked during the execution of the higher-order function.</p>
+
+    <p>When we invoke a higher-order function, and pass another function in as an argument, we don't invoke the argument function. Invoking it would evaluate to passing in the return value of that function call. With callback functions, we pass in the function itself by typing the function name <i>without</i> the parentheses:</p>
+
+    <pre>
+    <code>
+        const higherOrderFunc = param => {
+            param();
+            return `I just invoked ${param.name} as a callback function!`
+        }
+           
+        const anotherFunc = () => {
+            return 'I\'m being invoked by the higher-order function!';
+        }
+          
+        higherOrderFunc(anotherFunc);
+    </code>
+    </pre>
+
+    <p>We wrote a higher-order function <span id="code">higherOrderFunc</span> that accepts a single parameter, <span id="code">param</span>. Inside the body, <span id="code">param</span> gets invoked using parentheses. And finally, a string is returned, telling us the name of the callback function that was passed in.</p>
+
+    <p>Below the higher-order function, we have another function aptly named <span id="code">anotherFunc.This function aspires to be called inside the higher-order function.</span></p>
+
+    <p>Lastly, we invoke <span id="code">higherOrderFunc()</span>, passing in <span id="code">anotherFunc</span> as its argument, thus fulfilling its dreams of being called by the higher-order function.</p>
+
+    <pre>
+    <code>
+        higherOrderFunc(() => {
+            for (let i = 0; i <= 10; i++){
+              console.log(i);
+            }
+        });
+    </code>
+    </pre>
+
+    <p>In this example, we invoked <span id="code">higherOrderFunc()</span> with an anonymous function (a function without a name) that counts to 10. Anonymous functions can be arguments too!</p>
+
+    <p>Great job! By thinking about functions as data, and learning about higher-order functions, you've taken important steps in learning to write clean, modular code that takes advantage of JavaScript's flexibility.</p>
+
+    <h1>Iterators</h1>
+
+    <p>Imagine you had a grocery list and you wanted to know what each item on the list was. You'd have to scan through each row and check for the item. This common task is similar to what we have to do when we want to iterate over, or loop through, an array. One tool at our disposal is the <span id="code">for</span> loop. However, we also have access to built-in array methods which make looping easier.</p>
+
+    <p>The built-in JavaScript array methods that help us iterate are called <i>iteration methods</i>, at times referred to as iterators. Iterators are methods called on arrays to manipulate elements and return values. In this chapter you will learn the syntac for these methods, their reutrn values, how to use the documentation to understand them, and how to choose the right iterator method for a given task.</p>
+
+    <h2>The .forEach() Method</h2>
+
+    <p>The first iteration method that we're going to learn is <span id="code">.forEach()</span>. Aptly named, <span id="code">.forEach()</span> will execute the same code for each element of an array.</p>
+
+    <img src="/Portfolio/Project_1/Images/iterator anatomy.svg" title="Iterator Anatomy" alt="An image of iteration anatomy" class="imgcenter">
+
+    <p>The code above will log a nicely formatted list of the groceries to the console. Let's explore the syntax of invoking <span id="code">.forEach()</span></p>
+
+    <ul>
+        <li><span id="code">groceries.forEach()</span> calls the <span id="code">forEach</span> method on the <span id="code">groceries</span> array.</li>
+        <br>
+        <li><span id="code">.forEach()</span> takes an argument of callback funciton. Remember, a callback function is a function passed as an argument into another function.</li>
+        <br>
+        <li><span id="code">.forEach()</span> loops through the array and executes the callback function for each element. During each executing, the current element is passed as an argument to the callback function.</li>
+        <br>
+        <li>The return vallue for <span id="code">.forEach()</span> will always be <span id="code">underfined</span>.</li>
+    </ul>
+
+    <p>Another way to pass a callback for <span id="code">.forEach()</span> is to use arrow function syntax.</p>
+
+    <pre>
+    <code>
+        groceries.forEach(groceryItem => console.log(groceryItem));
+    </code>
+    </pre>
+
+    <p>We can also define a function beforehand to be used as the callback function.</p>
+
+    <pre>
+    <code>
+        function printGrocery(element){
+            console.log(element);
+        }
+          
+        groceries.forEach(printGrocery);
+    </code>
+    </pre>
+
+    <p>The above example uses a function declaration but you can also use a function expression or arrow function as well.</p>
+
+    <p>All three code snippets do the same thing. In each array iteration method, we can use any of the three examples to supply a callback function as an argument to the iterator. It's good to be aware of the diferent ways to pass in callback functions as arguments in iterators because developers have different stylistic preferences. Nonetheless, due to the strong adoption of ES6, we will be using arrow function syntax in the later exercises.</p>
+
+    <h2>The .map() Method</h2>
+
+    <p>The second iterator we're going to cover is <span id="code">.map()</span>. When <span id="code">.map()</span> is called on an array, it takes an argument of a callback function and returns a new array! Take a look at an example of calling <span id="code">.map()</span>:</p>
+
+    <pre>
+    <code>
+        const numbers = [1, 2, 3, 4, 5]; 
+
+        const bigNumbers = numbers.map(number => {
+            return number * 10;
+        });
+    </code>
+    </pre>
+
+    <p><span id="code">.map()</span> works in a similar manner to <span id="code">.forEach()</span>- the major difference is that <span id="code">.map()</span> returns a new array.</p>
+
+    <p>In the example above:</p>
+
+    <ul>
+        <li><span id="code">numbers</span> is an array of numbers.</li>
+        <br>
+        <li><span id="code">bigNumbers</span> will store the return value of calling <span id="code">.map()</span> on <span id="code">numbers</span>.</li>
+        <br>
+        <li><span id="code">numbers.map</span> will iterate through each element in the <span id="code">numbers</span> array and pass the element into the callback function.</li>
+        <br>
+        <li><span id="code">return number * 10</span> is the code we wish to execute upon each element in the array. This will saave each value from the <span id="code">numbers</span> array, multiplied by <span id="code">10</span>, to a new array.</li>
+    </ul>
+
+    <p>If we take a look at <span id="code">numbers</span> and <span id="code">bigNumbers</span>:</p>
+
+    <pre>
+    <code>
+        console.log(numbers); // Output: [1, 2, 3, 4, 5]
+        console.log(bigNumbers); // Output: [10, 20, 30, 40, 50]
+    </code>
+    </pre>
+
+    <p>Notice that the elements in <span id="code">numbers</span> were not altered and <span id="code">bigNumbers</span> is a new array.</p>
+
+    <h2>The .filter() Method</h2>
+    
 <script src="JS/myScript.js"></script>   
 </body>
 <footer>
