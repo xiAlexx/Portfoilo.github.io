@@ -1864,6 +1864,140 @@
     <p>Notice that the elements in <span id="code">numbers</span> were not altered and <span id="code">bigNumbers</span> is a new array.</p>
 
     <h2>The .filter() Method</h2>
+
+    <p>Another useful iterator method is <span id="code">.filter()</span>. Like <span id="code">.map()</span>, <span id="code">.filter()</span> returns a new array. However, <span id="code">.filter()</span> returns an array of elements after filtering out certain elements from the original array. The callback function for the <span id="code">.filter()</span> method should return <span id="code">true</span> or <span id="code">false</span> depending on the element that is passed to it. The elements that cause the callback function to return <span id="code">true</span> are added to the new array. Take a look at the following example:</p>
+
+    <pre>
+    <code>
+        const words = ['chair', 'music', 'pillow', 'brick', 'pen', 'door']; 
+
+        const shortWords = words.filter(word => {
+            return word.length < 6;
+        });
+    </code>
+    </pre>
+
+    <ul>
+        <li><span id="code">words</span> is an array that contains string elements.</li>
+        <br>
+        <li><span id="code">const shortWords = </span> declares a new variable that will store the returned array from invoking <span id="code">.filter()</span>.</li>
+        <br>
+        <li>The callback function is an arrow function that has a single parameter, <span id="code">word</span>. Each element in the <span id="code">words</span> array will be passed to this function as an argument.</li>
+        <br>
+        <li><span id="code">word.length < 6;</span> is the condition in the callback function. Any <span id="code">word</span> from the <span id="code">words</span> array that has a fewer then <span id="code">6</span> characters will be addedto the <span id="code">shortWords</span> array.</li>
+    </ul>
+
+    <p>Let's also check the values of <span id="code">words</span> and <span id="code">shortWords</span>:</p>
+
+    <pre>
+    <code>
+        console.log(words); // Output: ['chair', 'music', 'pillow', 'brick', 'pen', 'door']; 
+        console.log(shortWords); // Output: ['chair', 'music', 'brick', 'pen', 'door']
+    </code>
+    </pre>
+    
+    <p>Observe how <span id="code">words</span> was not mutated, i.e. changed, and <span id="code">shortWords</span> is a new array.</p>
+
+    <h2>The .findIndex() Method</h2>
+
+    <p>We sometimes want to find the location of an element in an array. That's where the <span id="code">.findIndex()</span> method comes in! Calling <span id="code">.findIndex()</span> on an array will return the index of the first element that evaluates to <span id="code">true</span> in the callback function.</p>
+
+    <pre>
+    <code>
+        const jumbledNums = [123, 25, 78, 5, 9]; 
+
+        const lessThanTen = jumbledNums.findIndex(num => {
+            return num < 10;
+        });
+    </code>
+    </pre>
+
+    <ul>
+        <li><span id="code">jumbledNums</span> is an array that contains elements that are numbers.</li>
+        <br>
+        <li><span id="code">const lessThanTen =</span> declares a new variable that stores the returned index number from invoking <span id="code">.findIndex()</span>.</li>
+        <br>
+        <li>The callback function is an arrow function that has a single parameter, <span id="code">num</span>. Each element in the <span id="code">jumbledNums</span> array will be passed to this function as an argument.</li>
+        <br>
+        <li><span id="code">num < 10;</span> is the condition that elements are checked against. <span id="code">.findIndex()</span> will return the index of the first element which evaluates to <span id="code">true</span> for that condition.</li>
+    </ul>
+
+    <p>Let's take a look at what <span id="code">lessThanTen</span> evaluates to:</p>
+
+    <pre>
+    <code>
+        console.log(lessThanTen); // Output: 3
+    </code>
+    </pre>
+
+    <p>If we check what element has index of 3:</p>
+    
+    <pre>
+    <code>
+        console.log(jumbledNums[3]); // Output: 5
+    </code>
+    </pre>
+
+    <p>Great, the element in index <span id="code">3</span> is the number <span id="code">5</span>. This makes sense since <span id="code">5</span> is the first element that is less than 10.</p>
+
+    <p>If there isn't a single element in the array that satisfies the condition in the callback, then <span id="code">.findIndex()</span> will return <span id="code">-1</span>.</p>
+
+    <pre>
+    <code>
+        const greaterThan1000 = jumbledNums.findIndex(num => {
+            return num > 1000;
+        });
+          
+        console.log(greaterThan1000); // Output: -1
+    </code>
+    </pre>
+
+    <h2>The .reduce() Method</h2>
+
+    <p>Another widely used iteration method is <span id="code">.reduce()</span>. The <span id="code">.reduce()</span> method returns a single value after iterating through the elements of an array, thereby <i>reducing</i> the array. Take a look at the example below:</p>
+
+    <pre>
+    <code>
+        const numbers = [1, 2, 4, 10];
+
+        const summedNums = numbers.reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        })
+
+        console.log(summedNums) // Output: 17
+    </code>
+    </pre>
+
+    <p>Now let's go over the use of <span id="code">.reduce()</span> from the example above:</p>
+
+    <ul>
+        <li><span id="code">numbers</span> is an array that contains numbers.</li>
+        <br>
+        <li><span id="code">summedNums</span> is a variable that stores the returned value of invoking <span id="code">.reduce()</span> on <span id="code">numbers</span>.</li>
+        <br>
+        <li><span id="code">numbers.reduce()</span> calls the <span id="code">.reduce()</span> method on the <span id="code">numbers</span> array and takes in a callback function as argument.</li>
+        <br>
+        <li>The callback function has two parameters, <span id="code">accumulator</span> and <span id="code">currentValue</span>. The value of <span id="code">accumulator</span> starts off as the value of the first element in the array and the <span id="code">currentValue</span> starts as the second element. To see the value of <span id="code">accumulator</span> and <span id="code">currentValue</span> change.</li>
+        <br>
+        <li>As <span id="code">.reduce()</span> iterates through the array, the return value of the callback function becomes the <span id="code">accumulator</span> value for the next iteration, <span id="code">currentValue</span> takes on the value of the current element in the looping process.</li>
+    </ul>
+
+    <p>The <span id="code">.reduce()</span> method can also take an optional second parameter to set an initial value for <span id="code">accumulator</span> Remember, the first argument is the callback function! For instance:</p>
+
+    <pre>
+    <code>
+        const numbers = [1, 2, 4, 10];
+
+        const summedNums = numbers.reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 100)  // <- Second argument for .reduce()
+
+        console.log(summedNums); // Output: 117
+    </code>
+    </pre>
+
+    <h2>Iterator Documentation</h2>
+
     
 <script src="JS/myScript.js"></script>   
 </body>
