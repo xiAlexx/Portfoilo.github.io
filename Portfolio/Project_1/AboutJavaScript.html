@@ -1788,7 +1788,83 @@
 
     <img src="/Portfolio/Project_1/Images/iterator anatomy.svg" title="Iterator Anatomy" alt="An image of iteration anatomy" class="imgcenter">
 
-    <p>The code above will log a nicely formatted list of the groceries to the console. Let's explore the syntax of invoking <span id="code"></span></p>
+    <p>The code above will log a nicely formatted list of the groceries to the console. Let's explore the syntax of invoking <span id="code">.forEach()</span></p>
+
+    <ul>
+        <li><span id="code">groceries.forEach()</span> calls the <span id="code">forEach</span> method on the <span id="code">groceries</span> array.</li>
+        <br>
+        <li><span id="code">.forEach()</span> takes an argument of callback funciton. Remember, a callback function is a function passed as an argument into another function.</li>
+        <br>
+        <li><span id="code">.forEach()</span> loops through the array and executes the callback function for each element. During each executing, the current element is passed as an argument to the callback function.</li>
+        <br>
+        <li>The return vallue for <span id="code">.forEach()</span> will always be <span id="code">underfined</span>.</li>
+    </ul>
+
+    <p>Another way to pass a callback for <span id="code">.forEach()</span> is to use arrow function syntax.</p>
+
+    <pre>
+    <code>
+        groceries.forEach(groceryItem => console.log(groceryItem));
+    </code>
+    </pre>
+
+    <p>We can also define a function beforehand to be used as the callback function.</p>
+
+    <pre>
+    <code>
+        function printGrocery(element){
+            console.log(element);
+        }
+          
+        groceries.forEach(printGrocery);
+    </code>
+    </pre>
+
+    <p>The above example uses a function declaration but you can also use a function expression or arrow function as well.</p>
+
+    <p>All three code snippets do the same thing. In each array iteration method, we can use any of the three examples to supply a callback function as an argument to the iterator. It's good to be aware of the diferent ways to pass in callback functions as arguments in iterators because developers have different stylistic preferences. Nonetheless, due to the strong adoption of ES6, we will be using arrow function syntax in the later exercises.</p>
+
+    <h2>The .map() Method</h2>
+
+    <p>The second iterator we're going to cover is <span id="code">.map()</span>. When <span id="code">.map()</span> is called on an array, it takes an argument of a callback function and returns a new array! Take a look at an example of calling <span id="code">.map()</span>:</p>
+
+    <pre>
+    <code>
+        const numbers = [1, 2, 3, 4, 5]; 
+
+        const bigNumbers = numbers.map(number => {
+            return number * 10;
+        });
+    </code>
+    </pre>
+
+    <p><span id="code">.map()</span> works in a similar manner to <span id="code">.forEach()</span>- the major difference is that <span id="code">.map()</span> returns a new array.</p>
+
+    <p>In the example above:</p>
+
+    <ul>
+        <li><span id="code">numbers</span> is an array of numbers.</li>
+        <br>
+        <li><span id="code">bigNumbers</span> will store the return value of calling <span id="code">.map()</span> on <span id="code">numbers</span>.</li>
+        <br>
+        <li><span id="code">numbers.map</span> will iterate through each element in the <span id="code">numbers</span> array and pass the element into the callback function.</li>
+        <br>
+        <li><span id="code">return number * 10</span> is the code we wish to execute upon each element in the array. This will saave each value from the <span id="code">numbers</span> array, multiplied by <span id="code">10</span>, to a new array.</li>
+    </ul>
+
+    <p>If we take a look at <span id="code">numbers</span> and <span id="code">bigNumbers</span>:</p>
+
+    <pre>
+    <code>
+        console.log(numbers); // Output: [1, 2, 3, 4, 5]
+        console.log(bigNumbers); // Output: [10, 20, 30, 40, 50]
+    </code>
+    </pre>
+
+    <p>Notice that the elements in <span id="code">numbers</span> were not altered and <span id="code">bigNumbers</span> is a new array.</p>
+
+    <h2>The .filter() Method</h2>
+    
 <script src="JS/myScript.js"></script>   
 </body>
 <footer>
