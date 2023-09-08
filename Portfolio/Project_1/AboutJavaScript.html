@@ -1026,16 +1026,528 @@
     
     <p>Find out more about Global Scopes. <a target="_blank" href="https://www.codecademy.com/courses/introduction-to-javascript/lessons/scope/exercises/global-scope">Click here</a></p>
 
+    <h2>Block Scope</h2>
+
+    <p>This content will breifly cover the consept of <i>Block Scope</i> For more information about block scope please vist w3schools you can find the link here:<a target="_blank" href="https://www.w3schools.com/js/js_scope.asp"> w3Schools.com</a></p>
+
+    <p>When a variable is defined inside aa block, it is only accessible to the code within the curly braces. <span id="code">{ }</span>. We say that variable has <i>block scope</i> because it is only accessible to the lines of code within that block.</p>
+
+    <p>Variables that are declared with block scope are known as <i>local variables</i> because they are only available to the code that is part of the same block.</p>
+
+    <p>Block Scope works like this:</p>
+
+    <pre>
+    <code>
+        const logSkyColor = () => {
+            let color = 'blue'; 
+            console.log(color); // Prints "blue"
+          };
+          
+          logSkyColor(); // Prints "blue"
+          console.log(color); // throws a ReferenceError
+    </code>
+    </pre>
+
+    <p>You'll notice:</p>
+
+    <ul>
+        <li>We define a function <span id="code">logSkyColor()</span>.</li>
+        <br>
+        <li>Within the function, the <span id="code">color</span> variable is only available within the curly braces of the function.</li>
+        <br>
+        <li>If we try to log the same variable outside the function, it throws a <span id="code">ReferenceError</span></li>
+    </ul>
+
+    <h2>Scope Pollution</h2>
+
+    <p>It may seem like a great idea to always maake your variables accessible, but having too many global variables can cause problems in a program.</p>
+
+    <p>When you declare global variables, they go to the <i>global namespace</i>. The global namespace allows the variables to be accessible from anywhere in the program. These variables remain there untill the program finishes which means our global namespace can fill up really quickly.</p>
+
+    <p>Scope pollution is when we have too many global variables that exist in the global namespace, or when we reuse variables across different scopes. Scope pollution makes it diffivult to kepp track of our different variables and sets us up for potential accidents. I made this same misstake when first making this website. As an example, globally scoped variables can collide with other variables that are more locally scoped, causing unexpected behavior in our code.</p>
+
+    <p>Let's look at an example of scope pollution in practice so we know how to avoid it:</p>
+
+    <pre>
+    <code>
+        let num = 50;
+
+        const logNum = () => {
+            num = 100; // Take note of this line of code
+            console.log(num);
+        };
+
+        logNum(); // Prints 100
+        console.log(num); // Prints 100
+    </code>
+    </pre>
+
+    <p>Okay so how does this work?</p>
+
+    <ul>
+        <li>We have a variable <span id="code">num</span></li>
+        <br>
+        <li>Inside the function body of <span id="code">logNum()</span>, we want to declare a new variable but forgot to use the <span id="code">let</span> keyword.</li>
+        <br>
+        <li>When we call <span id="code">logNum()</span>, <span id="code">num</span> gets reassigned to <span id="code">100</span>.</li>
+        <br>
+        <li>The reassignment inside <span id="code">logNum()</span> affects the global variable <span id="code">num</span>.</li>
+        <br>
+        <li>Even though the reassignment is allowed and we won't get an error, if we decided to use <span id="code">num</span> later, we'll unknowingly use the new value of <span id="code">num</span></li>
+    </ul>
+
+    <p>While it's important to know what global scope is, it's best practice to not define variables in the global scope.</p>
+
+    <h2>Practicing Good Scoping</h2>
+
+    <p>Given the challenges with global variables and scope pollution, we should follow best practices for scoping our variables as tightly as possible using block scope.</p>
     
+    <p>Tightly scoping your variables will greatly improve your code in several ways:</p>
 
+    <ul>
+        <li>It will make your code more legible since the blocks will organize your code into discrete sections.</li>
+        <br>
+        <li>It makes your code more understandable since it clarifies which variables are associated with different parts of the program rather then having to keep track of them line after line.</li>
+        <br>
+        <li>It's easier to maintain your code, since your code will be modular.</li>
+        <br>
+        <li>It will save memory in your code because it will cease to exist after the block finishes running.</li>
+    </ul>
 
+    <p>Here is another example of how block scope works, as defined within an <span id="code">if</span> block:</p>
+
+    <pre>
+    <code>
+        const logSkyColor = () => {
+            const dusk = true;
+            let color = 'blue'; 
+            if (dusk) {
+              let color = 'pink';
+              console.log(color); // Prints "pink"
+            }
+            console.log(color); // Prints "blue"
+          };
+          
+          console.log(color); // throws a ReferenceError  
+    </code>
+    </pre>
+
+    <p>Here, you'll notice:</p>
+
+    <ul>
+        <li>We create a variable <span id="code">color</span> inside the <span id="code">logSkyColor()</span> function.</li>
+        <br>
+        <li>After the <span id="code">if</span> statement, we define a new code block with the <span id="code">{ }</span> braces. Here we assign a new value to the variable <span id="code">color</span> if the <span id="code">if</span> statement is truthy.</li>
+        <br>
+        <li>Within the <span id="code">if</span> block, the <span id="code">color</span> variable holds the value <span id="code">pink</span>, though outside the <span id="code">if</span> block, in the function body, the <span id="code">color</span> variable holds the value <span id="code">blue</span>.</li>
+        <br>
+        <li>On the last line, we attempt to print the value of <span id="code">color</span> outside both the <span id="code">if</span> statement and the definition of <span id="code">logSkyColor()</span>. This will throw a <span id="code">ReferenceError</span> since <span id="code">color</span> only exists within the scope of those two blocks - it is never defined in the global scope.</li>
+        <br>
+        <li>While we use block scope, we still pollute our namespace by reusing the same variable name twice. A better practice would be to rename the variable inside the block.</li>
+        </ul>
+
+        <p>Block scope is a powerful tool in JavaScript, since it allows us to define variables with precision, and not pollute the global namesapce. If a variable does not need to exist outside a block it shouldn't.</p>
+
+        <h1>Arrays</h1>
+
+        <p>Organizing and storing data is a foundational concept of programming.</p>
+
+        <p>One way we organize data in real life is by making lists. Let's make one here:</p>
+
+        <p>New Year's Resolutions:</p>
+
+        <ol>
+            <li>Keep a journal</li>
+            <br>
+            <li>Take a falconry class</li>
+            <br>
+            <li>Learn to juggle</li>
+        </ol>
     
+        <p>Let's now write this list in JavaScript, as an array:</p>
 
+        <pre>
+        <code>
+            let newYearsResolutions = ['Keep a journal', 'Take a falconry class', 'Learn to juggle'];
+        </code>
+        </pre>
 
+        <p>Arrays are JavaScripts way of making lists. Arrays can store any data types including strings, numbers, and booleans. Like llists, arrays are ordered meaning each item has a numbered position.</p>
 
+        <p>Heres an array of the concepts we'll cover:</p>
 
+        <pre>
+        <code>
+            let concepts = ['creating arrays', 'array structures', 'array manipulation'];
+        </code>
+        </pre>
 
+        <p>Understanding arrays is a great tool to have under your belt that helps you manage chucks of data!</p>
 
+        <h2>Creating an Array</h2>
+
+        <p>One way we can create an arrayy is to use an array literal. An array literal creates an array by wrapping items in square brackets <span id="code">[ ]</span>. Remember from the previous section, arrays can store any data type - we can have an array that holds all the same data types or an array that holds different data types.</p>
+
+        <img src="/Portfolio/Project_1/Images/array literal.svg" title="An array literal" alt="An image of an array literal" class="imgcenter">
+
+        <p>Let's take a closer look at the syntax in the array example:</p>
+
+        <ul>
+            <li>The array is represented by the square brackets <span id="code">[ ]</span> and the content inside.</li>
+            <br>
+            <li>Each content item inside an array is called an <i>element</i>.</li>
+            <br>
+            <li>There are three  different elements inside the array.</li>
+            <br>
+            <li>Each element inside the array is a different data type.</li>
+        </ul>
+
+        <p>We can also save an array to a variable. You may have noticed we did this in the previous chapter.</p>
+
+        <h2>Accessing ELements</h2>
+
+        <p>Each element in an array has a numbered position known as its <i>index</i>. We can access individual items using ther index, which is similar to referencing an item in a list based on the item's position.</p>
+
+        <p>Arrays in JavaScript are <i>Zero-indexed</i>, meaning the positions start counting from <span id="code">0</span> rather then <span id="code">1</span>. Therefore, the first item in an array will be position <span id="code">0</span> Let's see how we could access an element in an array:</p>
+
+        <img src="/Portfolio/Project_1/Images/array indices.svg" title="An Array index example" alt="An image of an array indice example." class="imgcenter">
+
+        <p>In the code snippet above:</p>
+
+        <ul>
+            <li><span id="code">cities</span> is an array that has three elements.</li>
+            <br>
+            <li>We're using bracket notation, <span id="code">[ ]</span> with the index after the name of the array to access the element.</li>
+            <br>
+            <li><span id="code">cities[0]</span> will access the element at index <span id="code">0</span> in the array <span id="code">cities</span>. You can think of <span id="code">cities[0]</span> as accessing the space in memory that holds he string/text <span id="code">New York</span>.</li>
+        </ul>
+
+        <p>You can also access indivdual characters in a string using bracket notation and the index. For instance, you can write:</p>
+
+        <pre>
+        <code>
+            const hello = 'Hello World';
+            console.log(hello[6]);
+            // Output: W
+        </code>
+        </pre>
+
+        <p>The console will display <span id="code">W</span> since it is the character that is at index <span id="code">6</span>.</p>
+
+        <h2>Update Elements</h2>
+
+        <p>In the previous exercise, you learned how to access elements inside an array or a string by using an index. Once you have access to an element in an array, you can update its value.</p>
+
+        <pre>
+        <code>
+            let seasons = ['Winter', 'Spring', 'Summer', 'Fall'];
+
+            seasons[3] = 'Autumn';
+            console.log(seasons); 
+            //Output: ['Winter', 'Spring', 'Summer', 'Autumn']
+        </code>
+        </pre>
+
+        <p>In the example above, the <span id="code">seasons</span> array contained the names of the four seasons.</p>
+
+        <p>However, we decided that we preferred to say <span id="code">Autumn</span> instead of <span id="code">Fall</span>.</p>
+
+        <p>The line, <span id="code">seasons[3] = 'Autumn';</span> tells our program to change the item at index 3 of the <span id="code">seasons</span> array to be <span id="code">Autumn</span> instead of what is already there.</p>
+
+        <h2>Arrays with let and const</h2>
+
+        <p>You may recall that you can declare variables with both the <span id="code">let</span> and <span id="code">const</span> keywords. Variables declared with <span id="code">let</span> can be reassigned.</p>
+
+        <p>Variables declared with the <span id="code"> const</span> keyword cannot be reassigned. However, elements in an array declared with <span id="code">const</span> remain mutable. Meaning that we can change the contents of a <span id="code">const</span> array, but cannot reassign a new array or a different value.</p>
+
+        <h2>The .length property</h2>
+
+        <p>One of an array's built-in properties is <span id="code">length</span> and it returns the number of items in the array. We access the <span id="code">.length</span> property just like we do with strings.</p>
+
+        <p>Check the example below:</p>
+
+        <pre>
+        <code>
+            const newYearsResolutions = ['Keep a journal', 'Take a falconry class'];
+
+            console.log(newYearsResolutions.length);
+            // Output: 2
+        </code>
+        </pre>
+
+        <p>In the example above, we log <span id="code">newYearsResolutions.length</span> to the console using the following steps:</p>
+
+        <ul>
+            <li>We use <i>dot notation</i>, chaining a period with the property name to the array, to access the <span id="code">length</span> property of the <span id="code">newYearsResolutions</span> array.</li>
+            <br>
+            <li>Then we log the <span id="code">length</span> of <span id="code">newYearsResolutions</span> to the console.</li>
+            <br>
+            <li>Since <span id="code">newYearsResolutions</span> has two elements, <span id="code">2</span> would be logged to the console.</li>
+        </ul>
+
+        <p>When we want to know how many elements are in an array, we can access the <span id="code">.length</span>property.</p>
+
+        <h2>The .push() Method</h2>
+
+        <p>Let's learn about some built-in JavaScript methods that make working with arrays easier. These methods are specifically called on arrays to make common taks, like adding and removing elements, more straightforward.</p>
+
+        <p>One method, <span id="code">.push()</span>, allows us to add items to the end of an array. Here is an example of how this is used:</p>
+
+        <pre>
+        <code>
+            const itemTracker = ['item 0', 'item 1', 'item 2'];
+
+            itemTracker.push('item 3', 'item 4');
+
+            console.log(itemTracker); 
+            // Output: ['item 0', 'item 1', 'item 2', 'item 3', 'item 4'];
+        </code>
+        </pre>
+
+        <p>So,how does <span id="code">.push()</span> work?</p>
+
+        <ol>
+            <li>We access the <span id="code">push</span> method  by using dot notation, connecting <span id="code">push</span> to <span id="code">itemTracker</span> with a period.</li>
+            <br>
+            <li>Then we call it like a function. That's because <span id="code">.push()</span> is a function and one that JavaScript allows us to use right on an array.</li>
+            <br>
+            <li><span id="code">.push()</span> can take a single argument or multiple arguments separated by commas. In this case, we're adding two elements: <span id="code">item 3</span> and <span id="code">item 4</span> to <span id="code">itemTracker</span>.</li>
+            <br>
+            <li>Notice that <span id="code">.push()</span> changes, or <i>mutates</i>, <span id="code">itemTracker</span>. You might also see <span id="code">.push()</span> is the method for you!</li>
+        </ol>
+
+        <p>If you're looking for a method that will mutate an array by ading elements to it, then <span id="code">.push()</span> is the method for you!</p>
+
+        <h2>The .pop() Method</h2>
+
+        <p>Another array method, <span id="code">.pop()</span>, removes the last item of an array.</p>
+
+        <pre>
+        <code>
+            const newItemTracker = ['item 0', 'item 1', 'item 2'];
+
+            const removed = newItemTracker.pop();
+
+            console.log(newItemTracker); 
+            // Output: [ 'item 0', 'item 1' ]
+            console.log(removed);
+            // Output: item 2
+        </code>
+        </pre>
+
+        <ul>
+            <li>In the example above, calling <span id="code">.pop()</span> on the <span id="code">newItemTrracker</span> array removed <span id="code">item 2</span> from the end.</li>
+            <br>
+            <li><span id="code">.pop()</span> does not take any arguments, it simply removes the last element. In the example, we store the returned value in a variable <span id="code">removed</span> to be used for later.</li>
+            <br>
+            <li><span id="code">.pop()</span> is a method that mutates the initial array.</li>
+        </ul>
+
+        <p>When you need to mutate an array by removing the last element, use <span id="code">.pop()</span>.</p>
+
+        <h2>More Array Methods</h2>
+
+        <p>There are many more array methods than just <span id="code">.push()</span> and <span id="code">.pop()</span>. You can read about these array methods on the Docs entry for <a target="_blank" href="https://www.codecademy.com/resources/docs/javascript/arrays">JavaScript Arrays</a> </p>
+
+        <p><span id="code">.pop()</span> and <span id="code">.push()</span> mutate the array on which they're called. However, there are times that we don't want to mutate the original array and we can use non-mutating arrays methods. Be sure to check the Docs to undersatnd the behavior of the method you are using.</p>
+
+        <p>Some arrays methods that are available to JavaScript developers include: <span id="code">.join()</span>, <span id="code">.slice()</span>, <span id="code">.shift()</span>, <span id="code">.unshift()</span>, and <span id="code">.concat()</span> amongst many others. Using these built-in methods makes it easier to do some common tasks when working with arrays.</p>
+
+    <h2>Arrays And Functions</h2>
+    
+    <p>In the previous chapters we went over arrays being mutable, or changeable. Well what happens if we try to changed an array inside a function? Does the array keep the change after the function call or is it scoped to inside the function.</p>
+
+    <p>Take a look at the following example below. We call <span id="code">.push()</span> on an array inside a function. Recall, the <span id="code">.push()</span> method mutates, or changes, an array:</p>
+
+    <pre>
+    <code>
+        const flowers = ['peony', 'daffodil', 'marigold'];
+
+        function addFlower(arr) {
+          arr.push('lily');
+        }
+
+        addFlower(flowers);
+
+        console.log(flowers); // Output: ['peony', 'daffodil', 'marigold', 'lily']
+    </code>
+    </pre>
+
+    <p>Let's go over what happened in the example:</p>
+
+    <ul>
+        <li>The <span id="code">flowers</span> array has 3 elements.</li>
+        <br>
+        <li>The function <span id="code">addFlower()</span> has a parameter of <span id="code">arr</span> uses <span id="code">.push()</span> to add a <span id="code">lily</span> element into <span id="code">arr</span></li>
+        <br>
+        <li>We call <span id="code">addFlower()</span> with an argument of <span id="code">flowers</span> which will execute the code inside the <span id="code">addFlower</span>.</li>
+        <br>
+        <li>We check the value of <span id="code">flowers</span> and it now includes the <span id="code">lily</span> element! The array was mutated!</li>
+    </ul>
+
+    <p>So when you pass an arrray into a function, if the array is mutated inside the function, that change will be maintained outside the function as well. You might also see this concept explained as <i>pass-by-reference</i> since what we are actually passing to the function is a reference to where the variable memory is stored and changing the memory.</p>
+
+    <h2>Nested Arrays</h2>
+
+    <p>Earlier we mentioned that arrays can store other arrays. When an array contains another array it is known as a <i>nested array</i>. Examine the example below:</p>
+
+    <pre>
+    <code>
+        const nestedArr = [[1], [2, 3]];
+    </code>
+    </pre>
+
+    <p>To access the nested arrays we can use bracket notation with the index value, just like we did to access any other element.</p>
+
+    <pre>
+    <code>
+        const nestedArr = [[1], [2, 3]];
+
+        console.log(nestedArr[1]); //Output: [2,3]
+    </code>
+    </pre>
+
+    <p>Notice that <span id="code">nestedArr[1]</span> will grab the element in index 1 which is the array <span id="code">[2,3]</span>. Then, if we wanted to access the elements within the nested array we can <i>chain</i>, or add on, more bracket notation with index values.</p>
+
+    <pre>
+    <code>
+        const nestedArr = [[1], [2, 3]];
+
+        console.log(nestedArr[1]); // Output: [2, 3]
+        console.log(nestedArr[1][0]); //Output 2
+    </code>
+    </pre>
+
+    <p>In he secound <span id="code">console.log()</span> statement, we have two bracket notations chained to <span id="code">nestedArr[1][0]</span> and we get the value of <span id="code">2</span>.</p>
+
+    <h1>Loops</h1>
+
+    <p>A <i>loop</i> is a programming tool that repeats a set of instructions until a specified condition, called a <i>stopping condition</i> is reached. As a programmer, you'll find that you rely on loops all the time! You'll hear the generic term <i>iterate</i> when referring to loops; iterate simply means "to repeat".</p>
+
+    <p>When we need to reuse a task in our code, we often bundle that action in a function. Similarly, when we see that a process has to repeat multiple times in a row, we write a loop. Loops allow us to create efficient code that automates processes to make scable, manageable programs.</p>
+
+    <img src="/Portfolio/Project_1/Images/loops_abatraction_v5.svg" title="An example of loops" alt="An example of a javascript loop" class="imgcenter">
+
+    <p>As illustrated in the diagram, loops iterate or repeat an action until a specific condition is met. When the condition is met, the loop stops and the computer moves on to the next part of the program.</p>
+
+    <p>Before we delve into loops lets take a moment to develop an appreciation for loops. The best way to do that is by showing you how cumbersome it would be if a repeated task required you to type out the same code every single time.</p>
+
+    <pre>
+    <code>
+        const vacationSpots = ['Finland', 'Iceland', 'Norway'];
+
+        console.log(vacationSpots[0]); //Output Finland
+        console.log(vacationSpots[1]); //Output Iceland
+        console.log(vacationSpots[2]); //Output Norway     
+    </code>
+    </pre>
+
+    <p>As we don't know loops yet we have to console log each element in the array separetely. Now doing it for just 3 vaction spots is fine but what if we had 100 places. Console logging each vaction spot by hand would be a tedious task! So how do we make this task easier?</p>
+
+    <h2>The For Loop</h2>
+
+    <p>Instead of writing out the same code over and over, loops allow us to tell computers to repeat a given block of code on its own. One way to give computers these instructions is with a <span id="code">for</span> loop.</p>
+
+    <p>The typical <span id="code">for</span> loop includes an <i>iterator variable</i> that usually appears in all three expressions. The iterator variable is initialized, checked against the stopping condition, and assigned a new value on each lop iteration. Iterator variables can have any name, but it's best practice to use a descriptive variable name.</p>
+
+    <p>A <span id="code">for</span> loop contains three expressions separated by <span id="code">;</span> inside the parentheses:</p>
+
+    <ol>
+        <li>An <i>initialization</i> starts the loop and can also be used to declare the iterator variable.</li>
+        <br>
+        <li>A <i>stopping condition</i> is the condition that the iterator variable is evaluated against- if the condition evaluates to <span id="code">true</span> the code block will run, and if it evaluates to false the code will stop.</li>
+        <br>
+        <li>An <i>iteration statement</i> is used to update the iterator variable on each loop.</li>
+    </ol>
+
+    <p>This can be confussing at first with all stopping conditions and iterators however with a bit of practice this becomes really easy and can save you 100's of hours.</p>
+
+    <p>Let's take alook at an example:</p>
+
+    <pre>
+    <code>
+        for (let counter = 0; counter < 4; counter++) {
+            console.log(counter);
+        }
+    </code>
+    </pre>
+
+    <p>In this example, the output would be the following:</p>
+
+    <pre>
+    <code>
+        //Output
+        0
+        1
+        2
+        3
+    </code>    
+    </pre>
+
+    <p>Let's break down the example:</p>
+
+    <ul>
+        <li>The <i>initialization</i> is <span id="code">let counter = 0</span>, so the loop will start counting at <span id="code">0</span></li>
+        <br>
+        <li>The <i>stopping condition</i> is <span id="code">counter < 4</span>, meaning the loop will run as long as the iterator variable, <span id="code">counter</span>, is less than 4.</li>
+        <br>
+        <li>The iteration statement is <span id="code">counter++</span>. This means after each loop, the value of <span id="code">counter</span> will increase by 1. For the first iteration <span id="code">counter</span> will equal <span id="code">0</span>, for the second iteration <span id="code">counter</span> will equal 1, and so on.</li>
+        <br>
+        <li>The code block is inside of the curly braces, <span id="code">consle.log(counter)</span>, will execute until the condition evaluates to <span id="code">false</span>. The condition will be false when <span id="code">counter</span> is greater than or equal to 4 - the point that the condition becomes false is sometimes called the <i>stop condition</i>.</li>
+    </ul>
+
+    <p>This <span id="code">for</span> loop makes it possible to write <span id="code">0</span>, <span id="code">1</span>, <span id="code">2</span>, <span id="code">3</span> programmatically.</p>
+
+    <h2>Looping In Reverse</h2>
+
+    <p>What if we want the <span id="code">for</span> loop to log <span id="code">3</span>, <span id="code">2</span>, <span id="code">1</span>, and then <span id="code">0</span>? With simple modifications to the expressions, we can make our loop run backwards!</p>
+
+    <p>To run a backward <span id="code">for</span> loop, we must:</p>
+
+    <ul>
+        <li>Set the iterator variable to the highest desired value in the initialization expression.</li>
+        <br>
+        <li>Set the stopping condition for when the iterator variable is less than the desired amount.</li>
+        <br>
+        <li>The iterator should decrease in intervals after each iteation.</li>
+    </ul>
+
+    <p>Using the same example lets make the for loop go bakwards.</p>
+
+    <pre>
+    <code>
+        for (let counter = 3; counter >= 0; counter--){
+            console.log(counter);
+          }
+
+          //Output 3, 2, 1, 0
+
+    </code>
+    </pre>
+
+    <h2>Looping Through Arrays </h2>
+
+    <p><span id="code">for</span> loops are very handy for iterating over data structures. For example, we can use a <span id="code">for</span> loop to perform the same operation on each element on an array. Arrays hold lists of data, like customer names or product information. Imagine we owned a store and wanted to increase the price of every product in our catalog. That could be a lot of repeating code, but by using a <span id="code">for</span> loop to iterate through the array we could accomplish this task easily.</p>
+
+    <p>To loop through each element in an array, a <span id="code">for</span> loop should use the array's .length property in its condition.</p>
+
+    <p>Lets take a look at the example below to see how <span id="code">for</span> loops iterate on arrays:</p>
+
+    <pre>
+    <code>
+        const animals = ['Grizzly Bear', 'Sloth', 'Sea Lion'];
+        for (let i = 0; i < animals.length; i++){
+            console.log(animals[i]);
+        }
+
+        //Outputs 
+        Grizzly Bear
+        Sloth
+        Sea Lion
+    </code>
+    </pre>
+
+    <p>In the loop above, we've named our iterator variable <span id="code">i</span>. This is a variable naming convention you'll see in a lot of loops When we use <span id="code">i</span> to iterate through arrays we can think of it as being short-hand for the word index. Notice how our stopping condition checks that</p>
 
 <script src="JS/myScript.js"></script>   
 </body>
