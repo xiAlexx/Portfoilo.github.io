@@ -2355,7 +2355,92 @@
 
     <h2>Looping Through Objects</h2>
 
+    <p>Loops are programming tools that repeat a block of code until a condition is met. We learned how to iterate through arrays using their numerical indexing, but the key-value pairs in objects aren't ordered! JavaScirpt has given us an alternative solution for iterating through objects with the <span id="code">for...in</span> syntax. More information can be found <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in">Here</a>!</p>
+
+    <p><span id="code">for...in</span> will execute a given block of code for eac property in an object.</p>
+
+    <pre>
+    <code>
+        let spaceship = {
+            crew: {
+              captain: { 
+                name: 'Lily', 
+                degree: 'Computer Engineering', 
+                cheerTeam() { console.log('You got this!') } 
+              },
+              'chief officer': { 
+                name: 'Dan', 
+                degree: 'Aerospace Engineering', 
+                agree() { console.log('I agree, captain!') } 
+              },
+              medic: { 
+                name: 'Clementine', 
+                degree: 'Physics', 
+                announce() { console.log(`Jets on!`) } },
+              translator: {
+                name: 'Shauna', 
+                degree: 'Conservation Science', 
+                powerFuel() { console.log('The tank is full!') } 
+              }
+            }
+        }; 
+          
+          // for...in
+          for (let crewMember in spaceship.crew) {
+            console.log(`${crewMember}: ${spaceship.crew[crewMember].name}`);
+          }
+    </code>
+    </pre>
     
+    <p>Our <span id="code">for...in</span> will iterate through each element of the <span id="code">spaceship.crew</span> object. In each iteration, the variable <span id="code">crewMember</span> is set to one of <span id="code">spaceship.crew</span>'s keys, enabling us to log a list of crew members' role and <span id="code">name</span>.</p>
+
+    <h1>Advanced Objects</h1>
+
+    <p>Remember, objects in JavaScirpt are containers tha store data and functionality. In this lesson, we will build upon the fundamentals of creating objects and explore some advanced concepts.</p>
+
+    <p>In this chapter we will cover these topics:</p>
+
+    <ul>
+        <li>How to use the <span id="code">this</span> keyword.</li>
+        <br>
+        <li>Conveying privacy in JavaScirpt methods.</li>
+        <br>
+        <li>Defining getters and setters in objects.</li>
+        <br>
+        <li>Creating factory functions.</li>
+        <br>
+        <li>Finally, using destructuring techniques.</li>
+    </ul>
+
+    <h2>The <span id="code">this</span> Keyword</h2>
+
+    <p>Objects are collections of related data and functionality. We store that functionality in methods on our objects.</p>
+
+    <p>For example:</p>
+
+    <pre>
+    <code>
+        const goat = {
+            dietType: 'herbivore',
+            makeSound() {
+              console.log('baaa');
+            }
+        };
+    </code>
+    </pre>
+
+    <p>In our <span id="code">goat</span> object we have a <span id="code">.makeSound()</span> method. We can invoke the <span id="code">.makeSound() method on <span id="code">goat</span>.</p>
+
+    <pre>
+    <code>
+        goat.makeSound();
+        // Prints baaa
+    </code>
+    </pre>
+
+    <p></p>
+
+
 <script src="JS/myScript.js"></script>   
 </body>
 <footer>
