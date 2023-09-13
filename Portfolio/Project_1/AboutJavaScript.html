@@ -2024,7 +2024,176 @@
 
     <h1>Introduction To Objects</h1>
 
+    <p>Its now time to learn more about the basic structure that permeates nearly every aspect of JavaScript programming:<a target="_blank" href="https://www.codecademy.com/resources/docs/javascript/objects">Objects</a>.</p>
 
+    <p>You're probabably already more comfortable with objects than you think, because JavaScript loves objects! Many components of the language are actually objects under the hood, and even the parts that aren't - like strings or numbers - can still act like objects in some instances.</p>
+
+    <img src="/Portfolio/Project_1/Images/javascript_objects_example.svg" class="imgcenter" title="An example of Objects" alt="An image of the basic structure of Objects">
+
+    <p>There are only seven fundamental data types in JavaScirpt, and six of those are the primitive data types: string, number, boolean, null, undefined, and symbol. With the seventh type, objects, we open our code to more complex possibilities. We can use JavaScirpt objects to model real-world things, like a basketball, or we can use objects to build the data structures that make the web possible.</p>
+
+    <p>At their core, JavaScirpt objects are containers storing related data and functionality, but that deceptively simple task is extremely powerful in practice. You've been using the power of objects all along, but now it's time to understand the mechanics of objects and start making your own!</p>
+
+    <h2>Creating Object Literals</h2>
+
+    <p>Objects can be assigned to variables just like any JavaScirpt type. We use curly braces, <span id="code">{ }</span>, to designate an object literal:</p>
+
+    <pre>
+    <code>
+        let spaceship = {}; // Spaceship is an empty object
+    </code>
+    </pre>
+
+    <p>We fill an object with unordered data. This data is organized into <i>key-value pairs</i>. A key iis like a variable name that points to a location in memory that holds value.</p>
+
+    <img src="/Portfolio/Project_1/Images/key_value_example.svg" class="imgcenter" title="Key value example" alt="An image of a key value example">
+
+    <p>A key's value can be of any data type in the language including functions or other objects.</p>
+
+    <p>We make a key-value pair by writing the key's name, or <i>identifier</i>, followed by a colon and then the value. We seperate each key-value pair in an object literal with a comma <span id="code">,</span>. Keys are strings, but when we have a key that does not have any special characters in it, JavaScirpt allows us to omit or call the quotation marks:</p>
+
+    <img src="/Portfolio/Project_1/Images/javascript_object_spaceship_example.svg" title="The spaceship object exmaple" alt="An image of an example of an object with spaceship" class="imgcenter">
+
+    <pre>
+    <code>
+        // An object literal with two key-value pairs
+        let spaceship = {
+            'Fuel Type': 'diesel',
+            color: 'silver'
+        };
+    </code>
+    </pre>
+
+    <p>The <span id="code">spaceship</span> object has two properties <span id="code">Fuel Type</span> and <span id="code">color</span>. <span id="code">'Fuel Type'</span> has quotation marks because it contains a space character.</p>
+
+    <h2>Accessing Properties</h2>
+
+    <p>There are two ways we can access an object's property. Let's exxplore the first way - dot notation.</p>
+
+    <p>We have used dot notation to access the properties and methods of build-in objects and data instances:</p>
+
+    <pre>
+    <code>
+        'hello'.length; //Returns 5
+    </code>
+    </pre>
+
+    <p>With property fot notation, we write the object's name, followed by the dot operator ad then the property name (key):</p>
+
+    <pre>
+    <code>
+        let spaceship = {
+            homePlanet: 'Earth',
+            color: 'silver'
+        };
+        spaceship.homePlanet; // Returns 'Earth',
+        spaceship.color; //Returns 'silver',
+    </code>
+    </pre>
+
+    <img src="/Portfolio/Project_1/Images/object dot notation example.svg" title="An example of dot notation with objects" alt="An image on dot notation" class="imgcenter">
+
+    <p>If we try access a property that does not exist on that object, <span id="code">undefined</span> will be returned.</p>
+
+    <pre>
+    <code>
+        spaceship.favoriteIcecream; // Returns undefined
+    </code>
+    </pre>
+
+    <h2>Bracket Notation</h2>
+
+    <p>The second way to access a key's value is by using bracket notation, <span id="code">[ ]</span>.</p>
+
+    <p>We have used bracket notation when indexing an array:</p>
+
+    <pre>
+    <code>
+        ['A', 'B', 'C'][0]; // Returns 'A'
+    </code>
+    </pre>
+
+    <p>To use bracket notation to access an object's property, we pass in the property name (key) as a string.</p>
+
+    <img src="/Portfolio/Project_1/Images/object access bracket.svg" title="An example of object access using bracket notation" alt="An image on bracket notation" class="imgcenter">
+
+    <p>We <b>must</b> use bracket notation when accessing keys that have numbers, spaces, or special characters in them. Without bracket notation in these situations, our code would throw an error.</p>
+
+    <pre>
+    <code>
+        let spaceship = {
+            'Fuel Type': 'Turbo Fuel',
+            'Active Duty': true,
+            homePlanet: 'Earth',
+            numCrew: 5
+          };
+          spaceship['Active Duty'];   // Returns true
+          spaceship['Fuel Type'];   // Returns  'Turbo Fuel'
+          spaceship['numCrew'];   // Returns 5
+          spaceship['!!!!!!!!!!!!!!!'];   // Returns undefined
+    </code>
+    </pre>
+
+    <p>With bracket notation you can also use a variable inside the brackets to select the keys of an object. This can be especially helpful when working with functions:</p>
+
+    <pre>
+    <code>
+        let returnAnyProp = (objectName, propName) => 
+        objectName[propName];
+ 
+        returnAnyProp(spaceship, 'homePlanet'); 
+        // Returns 'Earth'
+    </code>
+    </pre>
+
+    <p>If we tried to write our <span id="code">returnAnyProp()</span> function with dot notation (<span id="code">objectName.propName</span>) the computer would look for a key of <span id="code">'propName'</span> on our object and not the value of the <span id="code">propName</span> parameter.</p>
+
+    <h2>Property Assignment</h2>
+
+    <p>Once we have defined an object, we're not stuck with all the properties we wrote. Objeccts are <i>mutable</i> meaning we can update them after we create them!</p>
+
+    <p>We can use either dot notation, or bracket notation, and the assignment operator <span id="code">=</span> to add new key-value pairs to an object or change an existing property.</p>
+
+    <img src="/Portfolio/Project_1/Images/object_property_assignment.svg" title="An example of an object property assignment" alt="An image on property assignment" class="imgcenter">
+
+    <p>One of two things can happen with property assignment:</p>
+
+    <ul>
+        <li>If the property already exists on the object, whatever value it held before will be replaced with the newly assigned value.</li>
+        <br>
+        <li>If there was no property with that name, a new property will be added to the object.</li>
+    </ul>
+
+    <p>It's important to know that although we can't reassign an object declared with <span id="code">const</span>, we can still mutate it, meaning we can add new properties and change the properties that are there.</p>
+
+    <pre>
+    <code>
+        const spaceship = {type: 'shuttle'};
+        spaceship = {type: 'alien'}; 
+        // TypeError: Assignment to constant variable.
+        spaceship.type = 'alien'; 
+        // Changes the value of the type property
+        spaceship.speed = 'Mach 5'; 
+        // Creates a new key of 'speed' with a value of 'Mach 5'
+    </code>
+    </pre>
+
+    <p>You can delete a property from an object with the <span id="code">delete</span> operator.</p>
+
+    <pre>
+    <code>
+        const spaceship = {
+            'Fuel Type': 'Turbo Fuel',
+            homePlanet: 'Earth',
+            mission: 'Explore the universe' 
+          };
+           
+          delete spaceship.mission;  
+          // Removes the mission property
+    </code>
+    </pre>
+
+    
 <script src="JS/myScript.js"></script>   
 </body>
 <footer>
