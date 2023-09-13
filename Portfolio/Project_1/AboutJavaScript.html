@@ -2193,7 +2193,47 @@
     </code>
     </pre>
 
-    
+    <h2>Methods</h2>
+
+    <p>When the data stored on an object is a function we call that a method. A property is what an object has, while a method is what an object does.</p>
+
+    <p>Do object methods seem familiar? That's because you've been using them all along! For exmaple <span id="code">console</span> is a global JavaScirpt object and <span id="code">.log()</span> is a method on that object. <span id="code">Math</span> is also a global JavaScirpt object and <span id="code">.floor()</span> is a method on it. We can include methods in our object literals by creating ordinary, colon-seperated key-value pairs. The key serves as our method's name, while the value is an anonymous function expression.</p>
+
+    <pre>
+    <code>
+        const alienShip = {
+            invade: function () { 
+              console.log('Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.')
+            }
+        };
+    </code>
+    </pre>
+
+    <p>With the new method syntax introduced in ES6 we can omit the colon and the <span id="code">function</span> keyword.</p>
+
+    <pre>
+    <code>
+        const alienShip = {
+            invade () { 
+              console.log('Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.')
+            }
+        };
+          
+    </code>
+    </pre>
+
+    <p>Object methods are invoked by appending the obejct's name with the dot operator followed by the method name and parentheses:</p>
+
+    <pre>
+    <code>
+        alienShip.invade(); 
+        // Prints 'Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.'
+    </code>
+    </pre>
+
+    <h2></h2>
+
+
 <script src="JS/myScript.js"></script>   
 </body>
 <footer>
