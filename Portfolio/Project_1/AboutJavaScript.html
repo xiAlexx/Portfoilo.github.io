@@ -2581,8 +2581,60 @@
 
     <p>Another thing to keep in mind when using getter (and setters) methods is that properties cannot share the same name as the getter/setter function. If we do so, then calling the method wll result in an infinite call stack error. One work around is to add an underscore before the property name like we did in the example above.</p>
 
-    <h2></h2>
+    <h2>Setters</h2>
 
+    <p>Along with getter methods, we can also create <i>setter</i> methods which reassign values of existing properties within an object. Let's see an example of a setter method in play:</p>
+
+    <pre>
+    <code>
+        const person = {
+            _age: 37,
+            set age(newAge){
+              if (typeof newAge === 'number'){
+                this._age = newAge;
+              } else {
+                console.log('You must assign a number to age');
+              }
+            }
+        };
+    </code>
+    </pre>
+
+    <p>Notice that in the example above:</p>
+
+    <ul>
+        <li>We can perform a check for what value is being assigned to <span id="code">this._age</span>.</li>
+        <br>
+        <li>When we use the setter method, only values that are numbers will reassign <span id="code">this._age</span>.</li>
+        <br>
+        <li>There are different outputs depending on what values are used to reassign <span id="code">this._age</span></li>
+    </ul>
+    
+    <p>So then, to use the stter method:</p>
+
+    <pre>
+    <code>
+        person.age = 40;
+        console.log(person._age);
+        // Logs: 40
+        person.age = '40';
+        // Logs: You must assign a number to age
+    </code>
+    </pre>
+
+    <p>Setter methods like <span id="code">age</span> do not need to called with a set of parentheses. Syntactically, it looks like we are reassigning the value of a property.</p>
+
+    <p>Like getter methods, there are similar advantages to using setter methods that include checking input, performing actions on properties, and displaying a clear intention for how the onject is supposed to be used. Nonetheless, even with a setter method, it is still ossible to directly reassign properties. For example, in the example above, we can still set <span id="code">._age</span> directly:</p>
+
+    <pre>
+    <code>
+        person._age = 'forty-five'
+        console.log(person._age);
+        // Logs: forty-five
+    </code>
+    </pre>
+
+    <h2>Factory Functions</h2>
 
 <script src="JS/myScript.js"></script>   
 </body>
