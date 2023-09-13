@@ -2429,7 +2429,7 @@
     </code>
     </pre>
 
-    <p>In our <span id="code">goat</span> object we have a <span id="code">.makeSound()</span> method. We can invoke the <span id="code">.makeSound() method on <span id="code">goat</span>.</p>
+    <p>In our <span id="code">goat</span> object we have a <span id="code">.makeSound()</span> method. We can invoke the <span id="code">.makeSound()</span> method on <span id="code">goat</span>.</p>
 
     <pre>
     <code>
@@ -2438,7 +2438,150 @@
     </code>
     </pre>
 
-    <p></p>
+    <p>Okay, we have a <span id="code">goat</span> object that can print <span id="code">baaa</span> to the console. Everything seems to be working fine. What if we wanted to add a new method to our <span id="code">goat</span> object called <span id="code">.diet()</span> that prints the <span id="code">goat</span>'s <span id="code">dietType</span>?</p>
+
+    <pre>
+    <code>
+        const goat = {
+            dietType: 'herbivore',
+            makeSound() {
+              console.log('baaa');
+            },
+            diet() {
+              console.log(dietType);
+            }
+        };
+        goat.diet(); 
+        // Output will be "ReferenceError: dietType is not defined"
+    </code>
+    </pre>
+
+    <p>That's weird, why is <span id="code">dietType</span> not defined even though it's a property of <span id="code">goat</span>? That's because inside the scope of the <span id="code">.diet()</span> method, we don't automatically have access to other properties of the <span id="code">goat</span> object.</p>
+
+    <p>Here's where <span id="code">this</span> keyword comes to the rescue. If we change the <span id="code">.diet()</span> method to use the <span id="code">this</span>, the <span id="code">.diet()</span> works!:</p>
+
+    <pre>
+    <code>
+        const goat = {
+            dietType: 'herbivore',
+            makeSound() {
+              console.log('baaa');
+            },
+            diet() {
+              console.log(this.dietType);
+            }
+        };
+          
+        goat.diet(); 
+        // Output: herbivore
+    </code>
+    </pre>
+
+    <p>The <span id="code">this</span> keyword references the <i>calling object</i> which provides access to the calling object's is <span id="code">goat</span> and by using <span id="code">this</span> we are accessing the <span id="code">goat</span> object itself, and then the <span id="code">dietType</span> property of <span id="code">goat</span> by using porperty dot notation.</p>
+
+    <h2>Arrow Functions And <span id="code">this</span></h2>
+
+    <p>In the previous chapter for a method, the calling object is the object the method belongs to. If we use the <span id="code">this</span> keyword in a method then the value of <span id="code">this</span> is the calling object. However, it becomes a bit more complicated when we start using arrow functions for methods. Lets take a look at the example below:</p>
+
+    <pre>
+    <code>
+        const goat = {
+            dietType: 'herbivore',
+            makeSound() {
+              console.log('baaa');
+            },
+            diet: () => {
+              console.log(this.dietType);
+            }
+        };
+          
+        goat.diet(); 
+        // Prints undefined
+    </code>
+    </pre>
+
+    <p>In the comment, you can see that <span id="code">goat.diet()</span> would log <span id="code">undefined</span>. So what happened? Why? Well notice that the <span id="code">.diet()</span> method is defined using an arrow function.</p>
+
+    <p>Arrow functions inherently <i>bind</i>, or tie, an already defined <span id="code">this</span> value to the function itself that is NOT the calling object. In the code snippet, the value of <span id="code">this</span> is the <i>global object</i>, or an object that ecists in the global scope, which doesn't have a <span id="code">dietType</span> property and therefore returns <span id="code">undefined</span>.</p>
+
+    <p>The key takeaway from the example above is to <i>avoid</i> using arrow functions when using <span id="code">this</span> in a method!</p>
+
+    <h2>Privacy</h2>
+
+    <p>Accessing and updating properties is fundamental in working with objects. However, there are cases in which we don't want other code simply accessing and updating an object's properties. When discussing <i>privacy</i> in objects, we define it as the idea that only certain properties should be mutable or able to change in value.</p>
+
+    <p>Certain languages have privacy built-in for objects, but JavaScirpt does not have this feature. Rather, JavaScirpt developers follow naming conventions that signal to other developers how to interact with a property. One common convention is to place an underscore <span id="code">_</span> before the name of a property to mean that the property should be altered. Here's an example of using <span id="code">_</span> to prepend a property.</p>
+
+    <pre>
+    <code>
+        const bankAccount = {
+            _amount: 1000
+        }
+    </code>
+    </pre>
+
+    <p>In the example above, the <span id="code">_amount</span> is not intended to be directly manipulated.</p>
+
+    <p>Even so, it is still possible to reassign <span id="code">_amount</span>:</p>
+
+    <pre>
+    <code>
+        bankAccount._amount = 1000000;
+    </code>
+    </pre>
+
+    <p>In later exercises, we will talk about the use of methods called <i>getters</i> and <i>setters</i>. Both methods are used to respect the intention of properties prepended, or began, with <span id="code">_</span>.Getters can return the value of internal properties and setters can safely reassign property values.</p>
+
+    <h2>Getters</h2>
+
+    <p><i>Getters</i> are methods that get and return the internal properties of an object. But they can do more then just retrieve the value of a property! Let's take a look at a getter method:</p>
+
+    <pre>
+    <code>
+        const person = {
+            _firstName: 'John',
+            _lastName: 'Doe',
+            get fullName() {
+              if (this._firstName && this._lastName){
+                return `${this._firstName} ${this._lastName}`;
+              } else {
+                return 'Missing a first name or a last name.';
+              }
+            }
+        }
+          
+        // To call the getter method: 
+        person.fullName; // 'John Doe'
+    </code>
+    </pre>
+
+    <p>Notice that in the getter method above:</p>
+
+    <ul>
+        <li>We use the <span id="code">get</span> keyword followed by a function.</li>
+        <br>
+        <li>We use an <span id="code">if...else</span> conditional to check if both <span id="code">_firstName</span> and <span id="code">_lastName</span> exist (by making sure they both return truthy values) and then return a different value depending on the result.</li>
+        <br>
+        <li>We can access the calling object's internal properties using <span id="code">this</span>. In <span id="code">fullName</span>, we're accessing both <span id="code">this._fullName</span> and <span id="code">this._lastName</span>.</li>
+        <br>
+        <li>In the last line we call <span id="code">fullName</span> on <span id="code">person</span>. In general, getter methods do not need to be called with a set of parentheses. Syntactically, it looks like we are accessing a property.</li>
+    </ul>
+
+    <p>Now that we have gone over syntax, let's discuss some notable advantages of using the getter methods:</p>
+
+    <ul>
+        <li>Getters can perfom an action on the data when getting a property.</li>
+        <br>
+        <li>Getters can return different values using conditionals.</li>
+        <br>
+        <li>In a getter, we can access the properties of the calling object using <span id="code">this</span>.</li>
+        <br>
+        <li>The functionality of our code is easier for other developers to understand.</li>
+    </ul>
+
+    <p>Another thing to keep in mind when using getter (and setters) methods is that properties cannot share the same name as the getter/setter function. If we do so, then calling the method wll result in an infinite call stack error. One work around is to add an underscore before the property name like we did in the example above.</p>
+
+    <h2></h2>
 
 
 <script src="JS/myScript.js"></script>   
