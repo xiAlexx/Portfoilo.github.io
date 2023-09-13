@@ -2290,8 +2290,72 @@
 
     <h2>Pass By Reference</h2>
 
-    <p></p>
+    <p>Objects are <i>passed by reference</i>. This means when we pass a variable assigned to an object into a function as an argument, the computer interprets the parameter name as pointing to the space in memory holding that object. As a result, functions which change object properties actually mutate the object permanently (even when the object is assigned to a <span id="code">const</span> variable)</p>
 
+    <pre>
+    <code>
+        const spaceship = {
+            homePlanet : 'Earth',
+            color : 'silver'
+        };
+           
+        let paintIt = obj => {
+            obj.color = 'glorious gold'
+        };
+           
+        paintIt(spaceship);
+           
+        spaceship.color 
+        // Returns 'glorious gold'
+    </code>
+    </pre>
+
+    <p>Our function <span id="code">paintIt()</span> permanently changed the color of our <span id="code">spaceship</span> object. However, reassignment of the <span id="code">spaceship</span> variable wouldn't work in the same way:</p>
+
+    <pre>
+    <code>
+        let spaceship = {
+            homePlanet : 'Earth',
+            color : 'red'
+        };
+        let tryReassignment = obj => {
+            obj = {
+              identified : false, 
+              'transport type' : 'flying'
+            }
+            console.log(obj) 
+            // Prints {'identified': false, 'transport type': 'flying'}
+           
+        };
+        tryReassignment(spaceship) 
+        // The attempt at reassignment does not work.
+        
+        spaceship 
+        // Still returns {homePlanet : 'Earth', color : 'red'};
+           
+        spaceship = {
+            identified : false, 
+            'transport type': 'flying'
+        }; 
+        // Regular reassignment still works.
+    </code>
+    </pre>
+
+    <p>Let's look at what happened in the code example:</p>
+
+    <ul>
+        <li>We declared this <span id="code">spaceship</span> object with <span id="code">let</span>. This allowed us to reassign it to a new object with <span id="code">identified</span> and <span id="code">'transport type'</span> properties with no problems.</li>
+        <br>
+        <li>When we tried the same thing using a function designed to reassign the object passed into it, the reassignment didn't stick (even though calling <span id="code">console.log()</span> on the object produced the expected result).</li>
+        <br>
+        <li>When we passed <span id="code">spaceship</span> into that function, <span id="code">obj</span> became a reference to the memory location of the <span id="code">spaceship</span> variable. This is because the <span id="code">obj</span> parameter of the <span id="code">tryReassignment()</span> function is a variable in its own right. The body of <span id="code">tryReassignment()</span> has no knowledge of the <span id="code">spaceship</span> variable at all!</li>
+        <br>
+        <li>When we did the reassignment in the body of <span id="code">tryReassignment()</span>, the <span id="code">obj</span> variable came to refer to the memory location of the object <span id="code">{'identified' : false, 'transport type' : 'flying'}</span>, while the <span id="code">spaceship</span> variable was completely unchanged from its earlier value.</li>
+    </ul>
+
+    <h2>Looping Through Objects</h2>
+
+    
 <script src="JS/myScript.js"></script>   
 </body>
 <footer>
