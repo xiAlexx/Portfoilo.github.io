@@ -2636,6 +2636,36 @@
 
     <h2>Factory Functions</h2>
 
+    <p>So far we have been creating objects indivdually, but there are times where we want to create many instances of an object quickly. Here is where factory functions come in. A real world factory manufactures multiple copies of an item quickly and on a massive scale. A factory function is a function that returns an object and can be reused to make multiple object instances. Factory functions can also have parameters allowing us to customize the object that gets returned.</p>
+
+    <p>Lets say we wanted to create an object to represent monsters in JavaScirpt. There are man different types of monsters and we could go about making each monster indivdually but we can also use a factory function to make our lives easier. To achieve this diabolical plan of creating multiple monsters objects, we can use a factory function that has parameters:</p>
+
+    <pre>
+    <code>
+        const monsterFactory = (name, age, energySource, catchPhrase) => {
+            return { 
+              name: name,
+              age: age, 
+              energySource: energySource,
+              scare() {
+                console.log(catchPhrase);
+              } 
+            }
+        };
+    </code>
+    </pre>
+
+    <p>In the <span id="code">monsterFactory</span> function aboce, it has four parameters and returns an object that has the properties: <span id="code">name</span>, <span id="code">age</span>, <span id="code">energySource</span>, and <span id="code">scare()</span>. To make an object that represents a specific monster like a ghost, we can call <span id="code">monsterFactory</span> with the necessary arguments and assign the return value to a variable:</p>
+
+    <pre>
+    <code>
+        const ghost = monsterFactory('Ghouly', 251, 'ectoplasm', 'BOO!');
+        ghost.scare();
+        // 'BOO!'
+    </code>
+    </pre>
+
+    <p>Now we have a <span id="code">ghost</span> object as a result of calling <span id="code">monsterFactory()</span> with the needed arguments. With <span id="code">monsterFactory</span> in place, we don't have to create an object literal every time we need a new monster. Instead, we can invoke the <span id="code">monsterFactory</span> function with the necessary arguments to make a monster for us!</p>
 <script src="JS/myScript.js"></script>   
 </body>
 <footer>
