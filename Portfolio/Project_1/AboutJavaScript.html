@@ -2024,7 +2024,648 @@
 
     <h1>Introduction To Objects</h1>
 
+    <p>Its now time to learn more about the basic structure that permeates nearly every aspect of JavaScript programming:<a target="_blank" href="https://www.codecademy.com/resources/docs/javascript/objects">Objects</a>.</p>
 
+    <p>You're probabably already more comfortable with objects than you think, because JavaScript loves objects! Many components of the language are actually objects under the hood, and even the parts that aren't - like strings or numbers - can still act like objects in some instances.</p>
+
+    <img src="/Portfolio/Project_1/Images/javascript_objects_example.svg" class="imgcenter" title="An example of Objects" alt="An image of the basic structure of Objects">
+
+    <p>There are only seven fundamental data types in JavaScirpt, and six of those are the primitive data types: string, number, boolean, null, undefined, and symbol. With the seventh type, objects, we open our code to more complex possibilities. We can use JavaScirpt objects to model real-world things, like a basketball, or we can use objects to build the data structures that make the web possible.</p>
+
+    <p>At their core, JavaScirpt objects are containers storing related data and functionality, but that deceptively simple task is extremely powerful in practice. You've been using the power of objects all along, but now it's time to understand the mechanics of objects and start making your own!</p>
+
+    <h2>Creating Object Literals</h2>
+
+    <p>Objects can be assigned to variables just like any JavaScirpt type. We use curly braces, <span id="code">{ }</span>, to designate an object literal:</p>
+
+    <pre>
+    <code>
+        let spaceship = {}; // Spaceship is an empty object
+    </code>
+    </pre>
+
+    <p>We fill an object with unordered data. This data is organized into <i>key-value pairs</i>. A key iis like a variable name that points to a location in memory that holds value.</p>
+
+    <img src="/Portfolio/Project_1/Images/key_value_example.svg" class="imgcenter" title="Key value example" alt="An image of a key value example">
+
+    <p>A key's value can be of any data type in the language including functions or other objects.</p>
+
+    <p>We make a key-value pair by writing the key's name, or <i>identifier</i>, followed by a colon and then the value. We seperate each key-value pair in an object literal with a comma <span id="code">,</span>. Keys are strings, but when we have a key that does not have any special characters in it, JavaScirpt allows us to omit or call the quotation marks:</p>
+
+    <img src="/Portfolio/Project_1/Images/javascript_object_spaceship_example.svg" title="The spaceship object exmaple" alt="An image of an example of an object with spaceship" class="imgcenter">
+
+    <pre>
+    <code>
+        // An object literal with two key-value pairs
+        let spaceship = {
+            'Fuel Type': 'diesel',
+            color: 'silver'
+        };
+    </code>
+    </pre>
+
+    <p>The <span id="code">spaceship</span> object has two properties <span id="code">Fuel Type</span> and <span id="code">color</span>. <span id="code">'Fuel Type'</span> has quotation marks because it contains a space character.</p>
+
+    <h2>Accessing Properties</h2>
+
+    <p>There are two ways we can access an object's property. Let's exxplore the first way - dot notation.</p>
+
+    <p>We have used dot notation to access the properties and methods of build-in objects and data instances:</p>
+
+    <pre>
+    <code>
+        'hello'.length; //Returns 5
+    </code>
+    </pre>
+
+    <p>With property fot notation, we write the object's name, followed by the dot operator ad then the property name (key):</p>
+
+    <pre>
+    <code>
+        let spaceship = {
+            homePlanet: 'Earth',
+            color: 'silver'
+        };
+        spaceship.homePlanet; // Returns 'Earth',
+        spaceship.color; //Returns 'silver',
+    </code>
+    </pre>
+
+    <img src="/Portfolio/Project_1/Images/object dot notation example.svg" title="An example of dot notation with objects" alt="An image on dot notation" class="imgcenter">
+
+    <p>If we try access a property that does not exist on that object, <span id="code">undefined</span> will be returned.</p>
+
+    <pre>
+    <code>
+        spaceship.favoriteIcecream; // Returns undefined
+    </code>
+    </pre>
+
+    <h2>Bracket Notation</h2>
+
+    <p>The second way to access a key's value is by using bracket notation, <span id="code">[ ]</span>.</p>
+
+    <p>We have used bracket notation when indexing an array:</p>
+
+    <pre>
+    <code>
+        ['A', 'B', 'C'][0]; // Returns 'A'
+    </code>
+    </pre>
+
+    <p>To use bracket notation to access an object's property, we pass in the property name (key) as a string.</p>
+
+    <img src="/Portfolio/Project_1/Images/object access bracket.svg" title="An example of object access using bracket notation" alt="An image on bracket notation" class="imgcenter">
+
+    <p>We <b>must</b> use bracket notation when accessing keys that have numbers, spaces, or special characters in them. Without bracket notation in these situations, our code would throw an error.</p>
+
+    <pre>
+    <code>
+        let spaceship = {
+            'Fuel Type': 'Turbo Fuel',
+            'Active Duty': true,
+            homePlanet: 'Earth',
+            numCrew: 5
+          };
+          spaceship['Active Duty'];   // Returns true
+          spaceship['Fuel Type'];   // Returns  'Turbo Fuel'
+          spaceship['numCrew'];   // Returns 5
+          spaceship['!!!!!!!!!!!!!!!'];   // Returns undefined
+    </code>
+    </pre>
+
+    <p>With bracket notation you can also use a variable inside the brackets to select the keys of an object. This can be especially helpful when working with functions:</p>
+
+    <pre>
+    <code>
+        let returnAnyProp = (objectName, propName) => 
+        objectName[propName];
+ 
+        returnAnyProp(spaceship, 'homePlanet'); 
+        // Returns 'Earth'
+    </code>
+    </pre>
+
+    <p>If we tried to write our <span id="code">returnAnyProp()</span> function with dot notation (<span id="code">objectName.propName</span>) the computer would look for a key of <span id="code">'propName'</span> on our object and not the value of the <span id="code">propName</span> parameter.</p>
+
+    <h2>Property Assignment</h2>
+
+    <p>Once we have defined an object, we're not stuck with all the properties we wrote. Objeccts are <i>mutable</i> meaning we can update them after we create them!</p>
+
+    <p>We can use either dot notation, or bracket notation, and the assignment operator <span id="code">=</span> to add new key-value pairs to an object or change an existing property.</p>
+
+    <img src="/Portfolio/Project_1/Images/object_property_assignment.svg" title="An example of an object property assignment" alt="An image on property assignment" class="imgcenter">
+
+    <p>One of two things can happen with property assignment:</p>
+
+    <ul>
+        <li>If the property already exists on the object, whatever value it held before will be replaced with the newly assigned value.</li>
+        <br>
+        <li>If there was no property with that name, a new property will be added to the object.</li>
+    </ul>
+
+    <p>It's important to know that although we can't reassign an object declared with <span id="code">const</span>, we can still mutate it, meaning we can add new properties and change the properties that are there.</p>
+
+    <pre>
+    <code>
+        const spaceship = {type: 'shuttle'};
+        spaceship = {type: 'alien'}; 
+        // TypeError: Assignment to constant variable.
+        spaceship.type = 'alien'; 
+        // Changes the value of the type property
+        spaceship.speed = 'Mach 5'; 
+        // Creates a new key of 'speed' with a value of 'Mach 5'
+    </code>
+    </pre>
+
+    <p>You can delete a property from an object with the <span id="code">delete</span> operator.</p>
+
+    <pre>
+    <code>
+        const spaceship = {
+            'Fuel Type': 'Turbo Fuel',
+            homePlanet: 'Earth',
+            mission: 'Explore the universe' 
+          };
+           
+          delete spaceship.mission;  
+          // Removes the mission property
+    </code>
+    </pre>
+
+    <h2>Methods</h2>
+
+    <p>When the data stored on an object is a function we call that a method. A property is what an object has, while a method is what an object does.</p>
+
+    <p>Do object methods seem familiar? That's because you've been using them all along! For exmaple <span id="code">console</span> is a global JavaScirpt object and <span id="code">.log()</span> is a method on that object. <span id="code">Math</span> is also a global JavaScirpt object and <span id="code">.floor()</span> is a method on it. We can include methods in our object literals by creating ordinary, colon-seperated key-value pairs. The key serves as our method's name, while the value is an anonymous function expression.</p>
+
+    <pre>
+    <code>
+        const alienShip = {
+            invade: function () { 
+              console.log('Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.')
+            }
+        };
+    </code>
+    </pre>
+
+    <p>With the new method syntax introduced in ES6 we can omit the colon and the <span id="code">function</span> keyword.</p>
+
+    <pre>
+    <code>
+        const alienShip = {
+            invade () { 
+              console.log('Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.')
+            }
+        };
+          
+    </code>
+    </pre>
+
+    <p>Object methods are invoked by appending the obejct's name with the dot operator followed by the method name and parentheses:</p>
+
+    <pre>
+    <code>
+        alienShip.invade(); 
+        // Prints 'Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.'
+    </code>
+    </pre>
+
+    <h2>Nested Objects</h2>
+
+    <p>In application code, objects are often nested- an object might have another object as a property which in turn could have a property that's an array of even more objects!</p>
+
+    <p>In our <span id="code">spaceship</span> object, we want a <span id="code">crew</span> object. This will contain all the crrew memebers who do important work on the craft. Each of those <span id="code">crew</span> memebers are objects themselves. They have propertues like <span id="code">name</span>, and <span id="code">degree</span>, and they each have unique methods based on their roles. We can also nest other objects in the <span id="code">spaceship</span> such as a <span id="code">telescope</span> or nest details about the spaceship's computers inside a parent <span id="code">nanoelectronics</span> object.</p>
+
+    <pre>
+    <code>
+        const spaceship = {
+            telescope: {
+               yearBuilt: 2018,
+               model: '91031-XLT',
+               focalLength: 2032 
+            },
+           crew: {
+               captain: { 
+                   name: 'Sandra', 
+                   degree: 'Computer Engineering', 
+                   encourageTeam() { console.log('We got this!') } 
+                }
+           },
+           engine: {
+               model: 'Nimbus2000'
+            },
+            nanoelectronics: {
+                computer: {
+                   terabytes: 100,
+                   monitors: 'HD'
+                },
+               'back-up': {
+                  battery: 'Lithium',
+                  terabytes: 50
+                }
+           }
+       }; 
+    </code>
+    </pre>
+
+    <p>We can chain operators to access nested properties. We'll have to pay attention to which operator makes sense to use in each layer. It can be helpful to pretend you are the computer and evaluate each expression from left to right so that each operation starts to feel a little more manageable.</p>
+
+    <pre>
+    <code>
+        spaceship.nanoelectronics['back-up'].battery; 
+        // Returns 'Lithium'
+    </code>
+    </pre>
+
+    <p>In the code above:</p>
+
+    <ul>
+        <li>First the computer evaluates <span id="code">spaceship.nanoelectronics</span>, which resultsin an object containing the <span id="code">back-up</span> and <span id="code">computer</span> objects.</li>
+        <br>
+        <li>We accessed the <span id="code">back-up</span> object by appending <span id="code">['back-up']</span>.</li>
+        <br>
+        <li>The <span id="code">back-up</span> object has a <span id="code">battery</span> property, accessed with <span id="code">.battery</span> which returned the value stored there: <span id="code">'Lithium'</span>.</li>
+    </ul>
+
+    <h2>Pass By Reference</h2>
+
+    <p>Objects are <i>passed by reference</i>. This means when we pass a variable assigned to an object into a function as an argument, the computer interprets the parameter name as pointing to the space in memory holding that object. As a result, functions which change object properties actually mutate the object permanently (even when the object is assigned to a <span id="code">const</span> variable)</p>
+
+    <pre>
+    <code>
+        const spaceship = {
+            homePlanet : 'Earth',
+            color : 'silver'
+        };
+           
+        let paintIt = obj => {
+            obj.color = 'glorious gold'
+        };
+           
+        paintIt(spaceship);
+           
+        spaceship.color 
+        // Returns 'glorious gold'
+    </code>
+    </pre>
+
+    <p>Our function <span id="code">paintIt()</span> permanently changed the color of our <span id="code">spaceship</span> object. However, reassignment of the <span id="code">spaceship</span> variable wouldn't work in the same way:</p>
+
+    <pre>
+    <code>
+        let spaceship = {
+            homePlanet : 'Earth',
+            color : 'red'
+        };
+        let tryReassignment = obj => {
+            obj = {
+              identified : false, 
+              'transport type' : 'flying'
+            }
+            console.log(obj) 
+            // Prints {'identified': false, 'transport type': 'flying'}
+           
+        };
+        tryReassignment(spaceship) 
+        // The attempt at reassignment does not work.
+        
+        spaceship 
+        // Still returns {homePlanet : 'Earth', color : 'red'};
+           
+        spaceship = {
+            identified : false, 
+            'transport type': 'flying'
+        }; 
+        // Regular reassignment still works.
+    </code>
+    </pre>
+
+    <p>Let's look at what happened in the code example:</p>
+
+    <ul>
+        <li>We declared this <span id="code">spaceship</span> object with <span id="code">let</span>. This allowed us to reassign it to a new object with <span id="code">identified</span> and <span id="code">'transport type'</span> properties with no problems.</li>
+        <br>
+        <li>When we tried the same thing using a function designed to reassign the object passed into it, the reassignment didn't stick (even though calling <span id="code">console.log()</span> on the object produced the expected result).</li>
+        <br>
+        <li>When we passed <span id="code">spaceship</span> into that function, <span id="code">obj</span> became a reference to the memory location of the <span id="code">spaceship</span> variable. This is because the <span id="code">obj</span> parameter of the <span id="code">tryReassignment()</span> function is a variable in its own right. The body of <span id="code">tryReassignment()</span> has no knowledge of the <span id="code">spaceship</span> variable at all!</li>
+        <br>
+        <li>When we did the reassignment in the body of <span id="code">tryReassignment()</span>, the <span id="code">obj</span> variable came to refer to the memory location of the object <span id="code">{'identified' : false, 'transport type' : 'flying'}</span>, while the <span id="code">spaceship</span> variable was completely unchanged from its earlier value.</li>
+    </ul>
+
+    <h2>Looping Through Objects</h2>
+
+    <p>Loops are programming tools that repeat a block of code until a condition is met. We learned how to iterate through arrays using their numerical indexing, but the key-value pairs in objects aren't ordered! JavaScirpt has given us an alternative solution for iterating through objects with the <span id="code">for...in</span> syntax. More information can be found <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in">Here</a>!</p>
+
+    <p><span id="code">for...in</span> will execute a given block of code for eac property in an object.</p>
+
+    <pre>
+    <code>
+        let spaceship = {
+            crew: {
+              captain: { 
+                name: 'Lily', 
+                degree: 'Computer Engineering', 
+                cheerTeam() { console.log('You got this!') } 
+              },
+              'chief officer': { 
+                name: 'Dan', 
+                degree: 'Aerospace Engineering', 
+                agree() { console.log('I agree, captain!') } 
+              },
+              medic: { 
+                name: 'Clementine', 
+                degree: 'Physics', 
+                announce() { console.log(`Jets on!`) } },
+              translator: {
+                name: 'Shauna', 
+                degree: 'Conservation Science', 
+                powerFuel() { console.log('The tank is full!') } 
+              }
+            }
+        }; 
+          
+          // for...in
+          for (let crewMember in spaceship.crew) {
+            console.log(`${crewMember}: ${spaceship.crew[crewMember].name}`);
+          }
+    </code>
+    </pre>
+    
+    <p>Our <span id="code">for...in</span> will iterate through each element of the <span id="code">spaceship.crew</span> object. In each iteration, the variable <span id="code">crewMember</span> is set to one of <span id="code">spaceship.crew</span>'s keys, enabling us to log a list of crew members' role and <span id="code">name</span>.</p>
+
+    <h1>Advanced Objects</h1>
+
+    <p>Remember, objects in JavaScirpt are containers tha store data and functionality. In this lesson, we will build upon the fundamentals of creating objects and explore some advanced concepts.</p>
+
+    <p>In this chapter we will cover these topics:</p>
+
+    <ul>
+        <li>How to use the <span id="code">this</span> keyword.</li>
+        <br>
+        <li>Conveying privacy in JavaScirpt methods.</li>
+        <br>
+        <li>Defining getters and setters in objects.</li>
+        <br>
+        <li>Creating factory functions.</li>
+        <br>
+        <li>Finally, using destructuring techniques.</li>
+    </ul>
+
+    <h2>The <span id="code">this</span> Keyword</h2>
+
+    <p>Objects are collections of related data and functionality. We store that functionality in methods on our objects.</p>
+
+    <p>For example:</p>
+
+    <pre>
+    <code>
+        const goat = {
+            dietType: 'herbivore',
+            makeSound() {
+              console.log('baaa');
+            }
+        };
+    </code>
+    </pre>
+
+    <p>In our <span id="code">goat</span> object we have a <span id="code">.makeSound()</span> method. We can invoke the <span id="code">.makeSound()</span> method on <span id="code">goat</span>.</p>
+
+    <pre>
+    <code>
+        goat.makeSound();
+        // Prints baaa
+    </code>
+    </pre>
+
+    <p>Okay, we have a <span id="code">goat</span> object that can print <span id="code">baaa</span> to the console. Everything seems to be working fine. What if we wanted to add a new method to our <span id="code">goat</span> object called <span id="code">.diet()</span> that prints the <span id="code">goat</span>'s <span id="code">dietType</span>?</p>
+
+    <pre>
+    <code>
+        const goat = {
+            dietType: 'herbivore',
+            makeSound() {
+              console.log('baaa');
+            },
+            diet() {
+              console.log(dietType);
+            }
+        };
+        goat.diet(); 
+        // Output will be "ReferenceError: dietType is not defined"
+    </code>
+    </pre>
+
+    <p>That's weird, why is <span id="code">dietType</span> not defined even though it's a property of <span id="code">goat</span>? That's because inside the scope of the <span id="code">.diet()</span> method, we don't automatically have access to other properties of the <span id="code">goat</span> object.</p>
+
+    <p>Here's where <span id="code">this</span> keyword comes to the rescue. If we change the <span id="code">.diet()</span> method to use the <span id="code">this</span>, the <span id="code">.diet()</span> works!:</p>
+
+    <pre>
+    <code>
+        const goat = {
+            dietType: 'herbivore',
+            makeSound() {
+              console.log('baaa');
+            },
+            diet() {
+              console.log(this.dietType);
+            }
+        };
+          
+        goat.diet(); 
+        // Output: herbivore
+    </code>
+    </pre>
+
+    <p>The <span id="code">this</span> keyword references the <i>calling object</i> which provides access to the calling object's is <span id="code">goat</span> and by using <span id="code">this</span> we are accessing the <span id="code">goat</span> object itself, and then the <span id="code">dietType</span> property of <span id="code">goat</span> by using porperty dot notation.</p>
+
+    <h2>Arrow Functions And <span id="code">this</span></h2>
+
+    <p>In the previous chapter for a method, the calling object is the object the method belongs to. If we use the <span id="code">this</span> keyword in a method then the value of <span id="code">this</span> is the calling object. However, it becomes a bit more complicated when we start using arrow functions for methods. Lets take a look at the example below:</p>
+
+    <pre>
+    <code>
+        const goat = {
+            dietType: 'herbivore',
+            makeSound() {
+              console.log('baaa');
+            },
+            diet: () => {
+              console.log(this.dietType);
+            }
+        };
+          
+        goat.diet(); 
+        // Prints undefined
+    </code>
+    </pre>
+
+    <p>In the comment, you can see that <span id="code">goat.diet()</span> would log <span id="code">undefined</span>. So what happened? Why? Well notice that the <span id="code">.diet()</span> method is defined using an arrow function.</p>
+
+    <p>Arrow functions inherently <i>bind</i>, or tie, an already defined <span id="code">this</span> value to the function itself that is NOT the calling object. In the code snippet, the value of <span id="code">this</span> is the <i>global object</i>, or an object that ecists in the global scope, which doesn't have a <span id="code">dietType</span> property and therefore returns <span id="code">undefined</span>.</p>
+
+    <p>The key takeaway from the example above is to <i>avoid</i> using arrow functions when using <span id="code">this</span> in a method!</p>
+
+    <h2>Privacy</h2>
+
+    <p>Accessing and updating properties is fundamental in working with objects. However, there are cases in which we don't want other code simply accessing and updating an object's properties. When discussing <i>privacy</i> in objects, we define it as the idea that only certain properties should be mutable or able to change in value.</p>
+
+    <p>Certain languages have privacy built-in for objects, but JavaScirpt does not have this feature. Rather, JavaScirpt developers follow naming conventions that signal to other developers how to interact with a property. One common convention is to place an underscore <span id="code">_</span> before the name of a property to mean that the property should be altered. Here's an example of using <span id="code">_</span> to prepend a property.</p>
+
+    <pre>
+    <code>
+        const bankAccount = {
+            _amount: 1000
+        }
+    </code>
+    </pre>
+
+    <p>In the example above, the <span id="code">_amount</span> is not intended to be directly manipulated.</p>
+
+    <p>Even so, it is still possible to reassign <span id="code">_amount</span>:</p>
+
+    <pre>
+    <code>
+        bankAccount._amount = 1000000;
+    </code>
+    </pre>
+
+    <p>In later exercises, we will talk about the use of methods called <i>getters</i> and <i>setters</i>. Both methods are used to respect the intention of properties prepended, or began, with <span id="code">_</span>.Getters can return the value of internal properties and setters can safely reassign property values.</p>
+
+    <h2>Getters</h2>
+
+    <p><i>Getters</i> are methods that get and return the internal properties of an object. But they can do more then just retrieve the value of a property! Let's take a look at a getter method:</p>
+
+    <pre>
+    <code>
+        const person = {
+            _firstName: 'John',
+            _lastName: 'Doe',
+            get fullName() {
+              if (this._firstName && this._lastName){
+                return `${this._firstName} ${this._lastName}`;
+              } else {
+                return 'Missing a first name or a last name.';
+              }
+            }
+        }
+          
+        // To call the getter method: 
+        person.fullName; // 'John Doe'
+    </code>
+    </pre>
+
+    <p>Notice that in the getter method above:</p>
+
+    <ul>
+        <li>We use the <span id="code">get</span> keyword followed by a function.</li>
+        <br>
+        <li>We use an <span id="code">if...else</span> conditional to check if both <span id="code">_firstName</span> and <span id="code">_lastName</span> exist (by making sure they both return truthy values) and then return a different value depending on the result.</li>
+        <br>
+        <li>We can access the calling object's internal properties using <span id="code">this</span>. In <span id="code">fullName</span>, we're accessing both <span id="code">this._fullName</span> and <span id="code">this._lastName</span>.</li>
+        <br>
+        <li>In the last line we call <span id="code">fullName</span> on <span id="code">person</span>. In general, getter methods do not need to be called with a set of parentheses. Syntactically, it looks like we are accessing a property.</li>
+    </ul>
+
+    <p>Now that we have gone over syntax, let's discuss some notable advantages of using the getter methods:</p>
+
+    <ul>
+        <li>Getters can perfom an action on the data when getting a property.</li>
+        <br>
+        <li>Getters can return different values using conditionals.</li>
+        <br>
+        <li>In a getter, we can access the properties of the calling object using <span id="code">this</span>.</li>
+        <br>
+        <li>The functionality of our code is easier for other developers to understand.</li>
+    </ul>
+
+    <p>Another thing to keep in mind when using getter (and setters) methods is that properties cannot share the same name as the getter/setter function. If we do so, then calling the method wll result in an infinite call stack error. One work around is to add an underscore before the property name like we did in the example above.</p>
+
+    <h2>Setters</h2>
+
+    <p>Along with getter methods, we can also create <i>setter</i> methods which reassign values of existing properties within an object. Let's see an example of a setter method in play:</p>
+
+    <pre>
+    <code>
+        const person = {
+            _age: 37,
+            set age(newAge){
+              if (typeof newAge === 'number'){
+                this._age = newAge;
+              } else {
+                console.log('You must assign a number to age');
+              }
+            }
+        };
+    </code>
+    </pre>
+
+    <p>Notice that in the example above:</p>
+
+    <ul>
+        <li>We can perform a check for what value is being assigned to <span id="code">this._age</span>.</li>
+        <br>
+        <li>When we use the setter method, only values that are numbers will reassign <span id="code">this._age</span>.</li>
+        <br>
+        <li>There are different outputs depending on what values are used to reassign <span id="code">this._age</span></li>
+    </ul>
+    
+    <p>So then, to use the stter method:</p>
+
+    <pre>
+    <code>
+        person.age = 40;
+        console.log(person._age);
+        // Logs: 40
+        person.age = '40';
+        // Logs: You must assign a number to age
+    </code>
+    </pre>
+
+    <p>Setter methods like <span id="code">age</span> do not need to called with a set of parentheses. Syntactically, it looks like we are reassigning the value of a property.</p>
+
+    <p>Like getter methods, there are similar advantages to using setter methods that include checking input, performing actions on properties, and displaying a clear intention for how the onject is supposed to be used. Nonetheless, even with a setter method, it is still ossible to directly reassign properties. For example, in the example above, we can still set <span id="code">._age</span> directly:</p>
+
+    <pre>
+    <code>
+        person._age = 'forty-five'
+        console.log(person._age);
+        // Logs: forty-five
+    </code>
+    </pre>
+
+    <h2>Factory Functions</h2>
+
+    <p>So far we have been creating objects indivdually, but there are times where we want to create many instances of an object quickly. Here is where factory functions come in. A real world factory manufactures multiple copies of an item quickly and on a massive scale. A factory function is a function that returns an object and can be reused to make multiple object instances. Factory functions can also have parameters allowing us to customize the object that gets returned.</p>
+
+    <p>Lets say we wanted to create an object to represent monsters in JavaScirpt. There are man different types of monsters and we could go about making each monster indivdually but we can also use a factory function to make our lives easier. To achieve this diabolical plan of creating multiple monsters objects, we can use a factory function that has parameters:</p>
+
+    <pre>
+    <code>
+        const monsterFactory = (name, age, energySource, catchPhrase) => {
+            return { 
+              name: name,
+              age: age, 
+              energySource: energySource,
+              scare() {
+                console.log(catchPhrase);
+              } 
+            }
+        };
+    </code>
+    </pre>
+
+    <p>In the <span id="code">monsterFactory</span> function aboce, it has four parameters and returns an object that has the properties: <span id="code">name</span>, <span id="code">age</span>, <span id="code">energySource</span>, and <span id="code">scare()</span>. To make an object that represents a specific monster like a ghost, we can call <span id="code">monsterFactory</span> with the necessary arguments and assign the return value to a variable:</p>
+
+    <pre>
+    <code>
+        const ghost = monsterFactory('Ghouly', 251, 'ectoplasm', 'BOO!');
+        ghost.scare();
+        // 'BOO!'
+    </code>
+    </pre>
+
+    <p>Now we have a <span id="code">ghost</span> object as a result of calling <span id="code">monsterFactory()</span> with the needed arguments. With <span id="code">monsterFactory</span> in place, we don't have to create an object literal every time we need a new monster. Instead, we can invoke the <span id="code">monsterFactory</span> function with the necessary arguments to make a monster for us!</p>
 <script src="JS/myScript.js"></script>   
 </body>
 <footer>
