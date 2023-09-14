@@ -2666,6 +2666,101 @@
     </pre>
 
     <p>Now we have a <span id="code">ghost</span> object as a result of calling <span id="code">monsterFactory()</span> with the needed arguments. With <span id="code">monsterFactory</span> in place, we don't have to create an object literal every time we need a new monster. Instead, we can invoke the <span id="code">monsterFactory</span> function with the necessary arguments to make a monster for us!</p>
+    
+    <h2>Property Value Shorthand</h2>
+
+    <p>ES6 introduced some new shortcuts for assigning properties to variables known as <i>destructuring</i>.</p>
+
+    <p>In the previous exercise, we created a factory function that helped us create objects. We had to assign each property a key and value even though the key name was the same as the parameter name we assigned to it. To remind ourselves, here's a shorten version of the factory function:</p>
+
+    <pre>
+    <code>
+        const monsterFactory = (name, age) => {
+            return {
+                name: name,
+                age: age
+            }
+        };
+    </code>
+    </pre>
+
+    <p>Let imagine if we had a to include more properties, that process would quickly become tedious! But we can use a destructuring technique, called <i>property value shorthand</i>, to save ourselves some keystrokes. The example below works exactly like the example above:</p>
+
+    <pre>
+    <code>
+        const monsterFactory = (name, age) => {
+            return {
+                name,
+                age
+            }
+        }
+    </code>
+    </pre>
+
+    <p>Notice that we don't have to repeat ourselves for property assignment!</p>
+
+    <h2>Destructured Assignment</h2>
+
+    <p>We often want to extract key-value pairs from objects and save them as variables. Take for example the follow object:</p>
+
+    <pre>
+    <code>
+        const vampire = {
+            name: 'Dracula',
+            residence: 'Transylvania',
+            preferences: {
+                day: 'stay inside',
+                night: 'satisfy appetite'
+            }
+        };
+    </code>
+    </pre>
+
+    <p>If we wanted to extract the <span id="code">residence</span> property as a variable, we could use the following code:</p>
+
+    <pre>
+    <code>
+        const residence = vampire.residence;
+        console.log(residence); 
+        // Prints 'Transylvania'
+    </code>
+    </pre>
+
+    <p>However, we can also take advantage of a destructuring technique called <i>destructured assignment</i> to save ourselves some keystrokes. In destructured assignment we create a variable with the name of an object's key that is wrapped in curly braces <span id="code">{ }</span> and assign to it the object. Take a look at the example below:</p>
+
+    <pre>
+    <code>
+        const { residence } = vampire;
+        console.log(residence);
+        // Prints 'Transylvania'
+    </code>
+    </pre>
+
+    <p>Look back at the <span id="code">vampire</span> object's properties in the first code example. Then, in the example above, we declare a new variable <span id="code">residence</span> that extracts the value of the <span id="code">residence</span> property of <span id="code">vampire</span>. When we log the value of <span id="code">residence</span> to the console, <span id="code">'Transylvania'</span> is printed.</p>
+
+    <p>We can even use destructured assignment to grab nested properties of an object:</p>
+
+    <pre>
+    <code>
+        const { day } = vampire.preferences;
+        console.log(day)
+        // Prints 'Stay inside'
+    </code>
+    </pre>
+
+    <h2>Built-in Objects Methods</h2>
+
+    <p>In the previous execrise we've been creating instances of objects that have their own methods for objects!</p>
+
+    <p>For example, we have access to object instance methods like: <span id="code">.hasOwnProperty()</span>, <span id="code">.valueOf()</span>, and many more! Practice your documentation reading skills and checkout MDN's object instance documentation <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#Methods">here</a></p>
+
+    <p>There are also useful object calss methods such <span id="code">Object.assign()</span>, <span id="code">Object.entries()</span>, and <span id="code">Object.keys()</span> just to name a few.</p>
+
+    <h1>Congratulations</h1>
+
+    <p>Well done! If you have a read all the way and practiced your methods, arrays, loops and objects you've finally made it. That's the basics. You should be really proud of yourself!!!</p>
+
+    
 <script src="JS/myScript.js"></script>   
 </body>
 <footer>
