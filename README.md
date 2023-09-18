@@ -1,4 +1,4 @@
-# Software Developer With A Passion For Games [🎮](/Project_1/Index.html)
+# Software Developer With A Passion For Games [🎮](Portfolio/Project_1/Index.html)
 
 Welcome to my software developer portfolio! This repository showcases my skills, projects, and experience in software development, with a particular interest in game development and web design.
 
@@ -6,7 +6,7 @@ Welcome to my software developer portfolio! This repository showcases my skills,
 
 Hello world, my name is Alex Porter and I'm a junior software developer with a strong passion for games and web design. Although my experience is primarily in software development, I have always been fascinated by the world of gaming. My goal is to combine my technical skills with my love for games to create immersive and captivating gaming experiences.
 
-The whole portfolio can be accessed by clicking the controller. [🎮](/Project_1/Index.html)
+The whole portfolio can be accessed by clicking the controller. [🎮](Portfolio/Project_1/Index.html)
 
 ## Projects
 
